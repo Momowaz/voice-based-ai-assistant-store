@@ -4,8 +4,8 @@ const AWS = require('aws-sdk');
 
 AWS.config.update({
   region: 'us-east-1', // Update with your AWS region
-  accessKeyId: 'AKIA5EGZNREIWKT7KZOF',
-  secretAccessKey: 'I6ObpMJUTH/XKgMaKQ34uwbgDpudvUmdlONP1Fdp',
+  accessKeyId: '',
+  secretAccessKey: '',
 });
 
 const Polly = new AWS.Polly();
