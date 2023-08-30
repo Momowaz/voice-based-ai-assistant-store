@@ -1,43 +1,60 @@
-const express = require('express');
+require("dotenv").config();
+const express = require("express");
+const OpenAI = require('openai');
 const cors = require('cors');
-const bodyParser = require('body-parser');
-const axios = require('axios');
 
 const app = express();
-app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+};
 
-const OPENAI_API_KEY = "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";
+app.use(cors(corsOptions));
 
-app.post('/speech-to-text', async (req, res) => {
+
+const OPENAI_API_KEY = '';
+
+const openai = new OpenAI({
+  apiKey: OPENAI_API_KEY,
+});
+
+const port = process.env.PORT || 3001;
+
+app.post("/askOpenAI", async (req, res) => {
+  const { question } = req.body;
   try {
-    const audioData = req.body.audio; 
-
-    // Configure Axios to send requests with your API key
-    const axiosInstance = axios.create({
-      baseURL: 'https://api.openai.com/v1/engines/whisper-large/completions',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENAI_API_KEY}`,
-      },
+    if (question == null) {
+      throw new Error("Uh oh, no prompt was provided");
+    }
+    const response = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content: "You are a helpful assistant."
+        },
+        {
+          role: "user",
+          content: question
+        }
+      ],
+      max_tokens: 20,
+      temperature: 0.7
     });
 
-    // Send a POST request to OpenAI API
-    const response = await axiosInstance.post('', {
-      audio: audioData, // The audio data received from the frontend
-      max_tokens: 512, // Customize parameters as needed
-    });
+    const answer = response.choices[0].message.content;
 
-    const transcription = response.data.transcription;
 
-    res.json({ transcription });
+
+    // Send the answer as a JSON response
+    res.json({ answer });
+
   } catch (error) {
-    console.error('Error processing audio:', error);
-    res.status(500).json({ message: 'Error processing audio' });
+    console.error(error);
+    res.status(500).json({ error: 'Error processing the request' });
   }
+
 });
 
-const port = 3001;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+app.listen(port, () => console.log(`Server is running on port ${port}!!`));
