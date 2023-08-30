@@ -4,6 +4,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import axios from 'axios';
 import AWS from 'aws-sdk';
 import  environment  from '../environment'
+import './speechAI.css'
 
 const awsConfig = {
     accessKeyId: environment.AWS_ACCESS_KEY_ID,
