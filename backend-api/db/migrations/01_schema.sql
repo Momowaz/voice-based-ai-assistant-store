@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS products CASCADE;
 DROP TABLE IF EXISTS categories CASCADE;
 DROP TABLE IF EXISTS addresses CASCADE;
 DROP TABLE IF EXISTS customers CASCADE;
-DROP TABLE IF EXISTS admins CASCADE;
+DROP TABLE IF EXISTS admin CASCADE;
 
 
 -- Creating the customers table
@@ -107,8 +107,10 @@ CREATE TABLE feedbacks (
 -- Creating the admin table
 CREATE TABLE admin (
   id SERIAL PRIMARY KEY,
-  username VARCHAR(50),
-  password VARCHAR(50)
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  email VARCHAR(50),
+  sub_id INT
 );
 
 -- Creating the voice_queries table
