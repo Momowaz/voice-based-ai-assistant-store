@@ -6,17 +6,17 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: process.env.FRONTEND_URL,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 };
 
 app.use(cors(corsOptions));
 
 
-const OPENAI_API_KEY = '';
+// const OPENAI_API_KEY = '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';
 
 const openai = new OpenAI({
-  apiKey: OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 const port = process.env.PORT || 3001;
