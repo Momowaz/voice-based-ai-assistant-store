@@ -7,8 +7,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './components/Home';
 import Products from './components/Products';
 import Categories from './components/Categories';
-import Profile from './components/profile';
+//import Profile from './components/profile';
 import Nav from './components/Nav';
+import Login from './components/login';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <Route path='/Categories' exact element={<Categories/>} />
         <Route path='/Products' element={<Products/>} />
         <Route path='/SpeechAI' element={<SpeechAI/>} />
-        <Route path='/profile' element={<Profile/>} />
+        <Route path='/login' element={<Login/>} />
       </Routes>
     </Router>
   );

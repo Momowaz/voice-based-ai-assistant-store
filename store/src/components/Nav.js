@@ -24,7 +24,7 @@ const NavBar = () => {
         <Button color="inherit" component={Link} to="/speechAI">
           Ask AI
         </Button>
-        <Button color="inherit" component={Link} to="/profile">
+        <Button color="inherit" component={Link} to="/login">
           Login
         </Button>
       </Toolbar>
