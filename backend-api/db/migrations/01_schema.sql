@@ -18,8 +18,8 @@ CREATE TABLE customers (
   id SERIAL PRIMARY KEY,
   first_name VARCHAR(50),
   last_name VARCHAR(50),
-  email VARCHAR(50),
-  sub_id INT
+  email VARCHAR(255),
+  sub_id VARCHAR(255)
 );
 
 -- Creating the addresses table
@@ -30,7 +30,7 @@ CREATE TABLE addresses (
   city VARCHAR(50),
   province VARCHAR(50),
   postal_code VARCHAR(10),
-  country VARCHAR(50)
+  country VARCHAR(100)
 );
 
 -- Creating the categories table
@@ -43,8 +43,8 @@ CREATE TABLE categories (
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
   category_id INT REFERENCES categories(id),
-  name VARCHAR(50),
-  image VARCHAR(100),
+  name VARCHAR(255),
+  image VARCHAR(255),
   price NUMERIC(10, 2),
   stock_quantity INT,
   description TEXT
@@ -61,8 +61,8 @@ CREATE TABLE cart_items (
   id SERIAL PRIMARY KEY,
   cart_id INT REFERENCES cart(id),
   product_id INT REFERENCES products(id),
-  quantity INT,
-  price NUMERIC(10, 2)
+  quantity INT
+  -- price NUMERIC(10, 2)
 );
 
 -- Creating the orders table
@@ -109,8 +109,8 @@ CREATE TABLE admin (
   id SERIAL PRIMARY KEY,
   first_name VARCHAR(50),
   last_name VARCHAR(50),
-  email VARCHAR(50),
-  sub_id INT
+  email VARCHAR(255),
+  sub_id VARCHAR(255)
 );
 
 -- Creating the voice_queries table

@@ -1,8 +1,8 @@
 -- Insert data into customers table
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Mohib', 'Waziri', 'mohib.waziri@example.com', 1);
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yuanyuan', 'Situ', 'yuanyuan.situ@example.com', 2);
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Jorge', 'Salamanca', 'jorge.salamanca@example.com', 3);
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yevheniia', 'Horbachova', 'yevheniia.horbachova@example.com', 4);
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Mohib', 'Waziri', 'mohib.waziri@example.com', "1QQ3345");
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yuanyuan', 'Situ', 'yuanyuan.situ@example.com', "2");
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Jorge', 'Salamanca', 'jorge.salamanca@example.com', "3");
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yevheniia', 'Horbachova', 'yevheniia.horbachova@example.com', "4");
 
 -- Insert data into addresses table
 
@@ -59,9 +59,9 @@ INSERT INTO feedbacks (customer_id, product_id, rating, comment) VALUES (3, 2, 4
 INSERT INTO feedbacks (customer_id, product_id, rating, comment) VALUES (2, 3, 1, 'It is fake!');
 
 -- Insert data into admin table
-INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'One', 'admin1@example.com', 1);
-INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'Two', 'admin2@example.com', 2);
-INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'Three', 'admin3@example.com', 3);
+INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'One', 'admin1@example.com', "1");
+INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'Two', 'admin2@example.com', "2");
+INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'Three', 'admin3@example.com', "3");
 
 -- Insert data into voice_queries table
 INSERT INTO voice_queries (customer_id, query_text, response_text) VALUES (1, 'Can you recommend the newest phone?', 'GrapePhone X12.');
