@@ -3,7 +3,7 @@ import { Button } from '@mui/material';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import axios from 'axios';
 import AWS from 'aws-sdk';
-
+import './speechAI.css'
 
 const awsConfig = {
     accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
