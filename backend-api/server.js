@@ -12,14 +12,27 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-
-// const OPENAI_API_KEY = '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';
-
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
 const port = process.env.PORT || 3001;
+
+
+
+app.get('/api/categories', (req, res) => {
+  const categories = [
+    { id: 1, name: 'Electronics' },
+    { id: 2, name: 'Books' },
+    { id: 3, name: 'Clothing' },
+    { id: 4, name: 'Furniture' },
+    { id: 5, name: 'Kitchen' },
+    { id: 6, name: 'Kids' },
+    { id: 7, name: 'Garden' },
+  ];
+  res.json(categories);
+})
+
 
 app.post("/askOpenAI", async (req, res) => {
   const { question } = req.body;
