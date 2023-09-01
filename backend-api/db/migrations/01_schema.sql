@@ -62,7 +62,6 @@ CREATE TABLE cart_items (
   cart_id INT REFERENCES cart(id),
   product_id INT REFERENCES products(id),
   quantity INT
-  -- price NUMERIC(10, 2)
 );
 
 -- Creating the orders table

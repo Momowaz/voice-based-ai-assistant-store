@@ -1,8 +1,8 @@
 -- Insert data into customers table
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Mohib', 'Waziri', 'mohib.waziri@example.com', "1QQ3345");
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yuanyuan', 'Situ', 'yuanyuan.situ@example.com', "2");
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Jorge', 'Salamanca', 'jorge.salamanca@example.com', "3");
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yevheniia', 'Horbachova', 'yevheniia.horbachova@example.com', "4");
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Mohib', 'Waziri', 'mohib.waziri@example.com', 'AB12Cd34efGH567ijK89');
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yuanyuan', 'Situ', 'yuanyuan.situ@example.com', 'LM90nOP12QR34stUV567');
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Jorge', 'Salamanca', 'jorge.salamanca@example.com', 'Wx89Zy01AB23CdEf4567');
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yevheniia', 'Horbachova', 'yevheniia.horbachova@example.com', 'GH89Ij01KL23Mn45OP67');
 
 -- Insert data into addresses table
 
@@ -28,9 +28,9 @@ INSERT INTO cart (customer_id) VALUES (3);
 INSERT INTO cart (customer_id) VALUES (4);
 
 -- Insert data into cart_items table
-INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (1, 1, 1, 1000.00);
-INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (3, 2, 2, 60.00);
-INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (2, 3, 1, 10000.00);
+INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (1, 1, 1);
+INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (3, 2, 2);
+INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (2, 3, 1);
 
 -- Insert data into orders table
 INSERT INTO orders (customer_id, order_date, total_amount) VALUES (1, '2023-08-27', 1000.00);
@@ -59,9 +59,9 @@ INSERT INTO feedbacks (customer_id, product_id, rating, comment) VALUES (3, 2, 4
 INSERT INTO feedbacks (customer_id, product_id, rating, comment) VALUES (2, 3, 1, 'It is fake!');
 
 -- Insert data into admin table
-INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'One', 'admin1@example.com', "1");
-INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'Two', 'admin2@example.com', "2");
-INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'Three', 'admin3@example.com', "3");
+INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'One', 'admin1@example.com', 'Zy12Xw34AbCD56Ef789G');
+INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'Two', 'admin2@example.com', 'Hi01Jk23LMn45OpQR678');
+INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'Three', 'admin3@example.com', 'ST90Uv12WX34YZ56abCD3');
 
 -- Insert data into voice_queries table
 INSERT INTO voice_queries (customer_id, query_text, response_text) VALUES (1, 'Can you recommend the newest phone?', 'GrapePhone X12.');
