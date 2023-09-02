@@ -32,6 +32,9 @@ function NavBar() {
           <Button color="inherit" component={Link} to="/login">
             Login
           </Button>
+          <Button color="inherit" component={Link} to="/profile">
+            Profile
+          </Button>
         </Box>
         {/* } */}
       </Toolbar>

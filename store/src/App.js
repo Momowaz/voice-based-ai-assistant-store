@@ -6,8 +6,11 @@ import Products from './pages/Products';
 import Categories from './pages/Categories';
 import Login from './components/Login';
 import Nav from './components/Nav';
+import Profile from './components/Profile';
+
 
 function App() {
+
   return (
     <Router>
       <Nav/>
@@ -17,8 +20,10 @@ function App() {
         <Route path='/Products' element={<Products/>} />
         <Route path='/SpeechAI' element={<SpeechAI/>} />
         <Route path='/login' element={<Login/>} />
+        <Route path='/profile' element={<Profile/>} />
       </Routes>
     </Router>
+    
   );
 }
 export default App;
