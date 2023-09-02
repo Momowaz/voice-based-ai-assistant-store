@@ -10,7 +10,7 @@ const Profile = () => {
   }
 
   return (
-    // isAuthenticated && (
+     isAuthenticated && (
       <Grid
         container
         justifyContent="center"
@@ -32,7 +32,7 @@ const Profile = () => {
         </Grid>
       </Grid>
     )
-  // );
+   );
 };
 
 export default Profile;

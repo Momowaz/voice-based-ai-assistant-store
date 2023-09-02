@@ -1,8 +1,10 @@
 import React from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 function NavBar() {
+  const { user, isAuthenticated} = useAuth0();
   return (
     <AppBar position="static">
       <Toolbar>
@@ -18,11 +20,20 @@ function NavBar() {
         <Button color="inherit" component={Link} to="/speechAI">
           Ask AI
         </Button>
-        <Box ml="auto">
-          <Button color="inherit" component={Link} to="/profile">
+        {/* if (isAuthenticated) {
+          <Box ml="auto">
+          <Button color="inherit" component={Link} to="/logout">
+            Logout
+          </Button>
+          </Box>
+          }
+        else { */}
+          <Box ml="auto">
+          <Button color="inherit" component={Link} to="/login">
             Login
           </Button>
         </Box>
+        {/* } */}
       </Toolbar>
     </AppBar>
   );
