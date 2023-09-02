@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Grid, Typography, Paper, Box } from "@mui/material";
 import axios from "axios";
 const Profile = () => {
   const { user, isAuthenticated } = useAuth0();
   console.log(user);
-  axios.post("http://localhost:3001/customer/find", user);
+  
+  useEffect(() => {
+    axios.post("http://localhost:3001/customer/find", user);
+  },[])
   return (
      isAuthenticated && (
       <Grid

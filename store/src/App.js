@@ -6,7 +6,7 @@ import Products from './pages/Products';
 import Categories from './pages/Categories';
 import Login from './components/Login';
 import ProductsByCategory from './pages/ProductsByCategory';
-import Profile from './components/profile';
+import Profile from './components/Profile';
 import Nav from './components/Nav';
 import ProductDetails from './pages/ProductDetails';
 
