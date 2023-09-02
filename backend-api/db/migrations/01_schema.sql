@@ -62,7 +62,8 @@ CREATE TABLE cart_items (
   id SERIAL PRIMARY KEY,
   cart_id INT REFERENCES cart(id),
   product_id INT REFERENCES products(id),
-  quantity INT
+  quantity INT,
+  price NUMERIC(10, 2)
 );
 
 -- Creating the orders table

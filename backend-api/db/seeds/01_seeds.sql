@@ -28,7 +28,8 @@ INSERT INTO addresses (customer_id, street, city, province, postal_code, country
 -- Insert data into categories table
 INSERT INTO categories (name) VALUES ('Electronics');
 INSERT INTO categories (name) VALUES ('Books');
-INSERT INTO categories (name) VALUES ('Clothing');INSERT INTO categories (name) VALUES ('Toys');
+INSERT INTO categories (name) VALUES ('Clothing');
+INSERT INTO categories (name) VALUES ('Toys');
 INSERT INTO categories (name) VALUES ('Home Decor');
 INSERT INTO categories (name) VALUES ('Jewelry');
 INSERT INTO categories (name) VALUES ('Beauty');
@@ -63,8 +64,8 @@ INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (2, 3, 1, 1
 INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (5, 7, 2, 100.00);
 INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (6, 8, 1, 5000.00);
 INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (7, 9, 3, 60.00);
-INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (8, 10, 2, 150.00);
-INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (9, 11, 1, 200.00);
+INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (8, 3, 2, 150.00);
+INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (9, 7, 1, 200.00);
 
 
 -- Insert data into orders table
@@ -85,8 +86,8 @@ INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (3, 3, 1,
 INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (4, 7, 2, 200.00);
 INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (5, 8, 1, 5000.00);
 INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (6, 9, 3, 180.00);
-INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (7, 10, 2, 300.00);
-INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (8, 11, 1, 2000.00);
+INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (7, 7, 2, 300.00);
+INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (8, 3, 1, 2000.00);
 
 
 -- Insert data into wishlist table
@@ -100,15 +101,16 @@ INSERT INTO wishlist (customer_id) VALUES (7);
 INSERT INTO wishlist (customer_id) VALUES (8);
 INSERT INTO wishlist (customer_id) VALUES (9);
 
+
 -- Insert data into wishlist_items table
 INSERT INTO wishlist_items (wishlist_id, product_id) VALUES (1, 2);
+INSERT INTO wishlist_items (wishlist_id, product_id) VALUES (2, 1);
 INSERT INTO wishlist_items (wishlist_id, product_id) VALUES (3, 1);
-INSERT INTO wishlist_items (wishlist_id, product_id) VALUES (4, 1);
-INSERT INTO wishlist_items (wishlist_id, product_id) VALUES (11, 4);
-INSERT INTO wishlist_items (wishlist_id, product_id) VALUES (12, 5);
-INSERT INTO wishlist_items (wishlist_id, product_id) VALUES (13, 6);
-INSERT INTO wishlist_items (wishlist_id, product_id) VALUES (14, 7);
-INSERT INTO wishlist_items (wishlist_id, product_id) VALUES (15, 8);
+INSERT INTO wishlist_items (wishlist_id, product_id) VALUES (4, 4);
+INSERT INTO wishlist_items (wishlist_id, product_id) VALUES (5, 5);
+INSERT INTO wishlist_items (wishlist_id, product_id) VALUES (6, 6);
+INSERT INTO wishlist_items (wishlist_id, product_id) VALUES (7, 7);
+INSERT INTO wishlist_items (wishlist_id, product_id) VALUES (8, 8);
 
 -- Insert data into feedbacks table
 INSERT INTO feedbacks (customer_id, product_id, rating, comment) VALUES (1, 1, 5, 'GrapePhone, great phone!');
