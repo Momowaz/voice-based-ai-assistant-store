@@ -8,5 +8,27 @@ const pool = new Pool({
   database: 'store_ai'
 });
 
-pool
-    .query("SELECT * FROM customers;").then(response => {console.log(response)})
+const getUserByEmail = function(email) {
+  const queryString = `
+    SELECT * FROM users
+    WHERE users.email = $1;
+  `;
+  return pool.query(queryString, email)
+    .then(res => {
+      if (res.rows) {
+        return res.rows[0];
+      } else {
+        return null;
+      }
+    })
+    .catch(err => {
+      console.log('query error:', err);
+    });
+
+
+
+};
+
+module.exports = {
+  getUserByEmail
+};

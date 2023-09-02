@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Grid, Typography, Paper, Box } from "@mui/material";
-
+import axios from "axios";
 const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <div>Please wait...</div>;
-  }
-
+  const { user, isAuthenticated } = useAuth0();
+  console.log(user);
+  
+  useEffect(() => {
+    axios.post("http://localhost:3001/customer/find", user);
+  },[])
   return (
-    // isAuthenticated && (
+     isAuthenticated && (
       <Grid
         container
         justifyContent="center"
@@ -21,18 +21,20 @@ const Profile = () => {
           <Paper elevation={3} style={{ padding: "16px" }}>
             <Box textAlign="center">
               <img
-                // src={user.picture}
-                // alt={user.name}
+                 src={user.picture}
+                 alt={user.name}
                 style={{ width: "100px", borderRadius: "50%" }}
               />
-              <Typography variant="h4">Username</Typography>
-              <Typography variant="body1">user email</Typography>
+              <Typography variant="h4">{user.name}</Typography>
+              <Typography variant="body1">{user.email}</Typography>
             </Box>
           </Paper>
         </Grid>
       </Grid>
     )
-  // );
+    
+   );
+   
 };
 
 export default Profile;
