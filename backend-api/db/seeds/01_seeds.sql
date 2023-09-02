@@ -1,10 +1,4 @@
 -- Insert data into customers table
-<<<<<<< HEAD
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Mohib', 'Waziri', 'mohib.waziri@example.com', 'AB12Cd34efGH567ijK89');
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yuanyuan', 'Situ', 'yuanyuan.situ@example.com', 'LM90nOP12QR34stUV567');
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Jorge', 'Salamanca', 'jorge.salamanca@example.com', 'Wx89Zy01AB23CdEf4567');
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yevheniia', 'Horbachova', 'yevheniia.horbachova@example.com', 'GH89Ij01KL23Mn45OP67');
-=======
 INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Mohib', 'Waziri', 'mohib.waziri@example.com', 1);
 INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yuanyuan', 'Situ', 'yuanyuan.situ@example.com', 2);
 INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Jorge', 'Salamanca', 'jorge.salamanca@example.com', 3);
@@ -16,7 +10,6 @@ INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Bob', 'Bro
 INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Emily', 'Davis', 'emily.davis@example.com', 9);
 INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Michael', 'Wilson', 'michael.wilson@example.com', 10);
 
->>>>>>> main
 
 -- Insert data into addresses table
 
@@ -64,11 +57,6 @@ INSERT INTO cart (customer_id) VALUES (9);
 
 
 -- Insert data into cart_items table
-<<<<<<< HEAD
-INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (1, 1, 1);
-INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (3, 2, 2);
-INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (2, 3, 1);
-=======
 INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (1, 1, 1, 1000.00);
 INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (3, 2, 2, 60.00);
 INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (2, 3, 1, 10000.00);
@@ -78,7 +66,6 @@ INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (7, 9, 3, 6
 INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (8, 10, 2, 150.00);
 INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (9, 11, 1, 200.00);
 
->>>>>>> main
 
 -- Insert data into orders table
 INSERT INTO orders (customer_id, order_date, total_amount) VALUES (1, '2023-08-27', 1000.00);
