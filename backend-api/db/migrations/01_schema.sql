@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS categories CASCADE;
 DROP TABLE IF EXISTS addresses CASCADE;
 DROP TABLE IF EXISTS customers CASCADE;
 DROP TABLE IF EXISTS admin CASCADE;
+DROP TABLE IF EXISTS payments CASCADE;
 
 
 -- Creating the customers table
@@ -118,4 +119,13 @@ CREATE TABLE voice_queries (
   customer_id INT REFERENCES customers(id),
   query_text TEXT,
   response_text TEXT
+);
+
+-- Creating the payments table
+CREATE TABLE payments (
+  id SERIAL PRIMARY KEY,
+  customer_id INT REFERENCES customers(id),
+  date DATE,
+  total_paid NUMERIC(10, 2),
+  stripe_charge_id VARCHAR(255)
 );
