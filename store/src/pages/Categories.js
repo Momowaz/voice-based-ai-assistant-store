@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardContent, Typography, Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ProductsByCategory from './ProductsByCategory'
 
 
 const Categories = () => {
@@ -18,18 +20,19 @@ const Categories = () => {
     }, []);
 
     return (
-        <div>
+        <div style={{ padding: '16px' }}> 
             <Grid container spacing={2}>
                 {categories.map(category => (
                     <Grid item key={category.id} xs={12} sm={6} md={4} lg={3}>
-                        <Card>
+                        <Link to={`/products/${category.id}`} component={ProductsByCategory} style={{ textDecoration: 'none'}}>
+                        <Card style={{ height: '100%' }}> 
                             <CardContent>
                                 <Typography variant="h6" component="div">
                                     {category.name}
                                 </Typography>
-                                {/* more details or links here */}
                             </CardContent>
                         </Card>
+                        </Link>
                     </Grid>
                 ))}
             </Grid>
