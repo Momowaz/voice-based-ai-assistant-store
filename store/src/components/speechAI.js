@@ -3,19 +3,21 @@ import { Button } from '@mui/material';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import axios from 'axios';
 import AWS from 'aws-sdk';
-import  environment  from '../environment'
 import './speechAI.css'
 
 const awsConfig = {
-    accessKeyId: environment.AWS_ACCESS_KEY_ID,
-    secretAccessKey: environment.AWS_SECRET_ACCESS_KEY,
-    region: environment.AWS_REGION,
+    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+    region: process.env.REACT_APP_AWS_REGION
 };
+
+console.log(process.env.AWS_ACCESS_KEY_ID);
+
 AWS.config.update(awsConfig);
 const polly = new AWS.Polly();
 
 const SpeechAI = () => {
-    const BACKEND_URL = environment.BACKEND_URL;
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
     const { transcript, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
     const [openAIResponse, setOpenAIResponse] = useState('');
     const [isListening, setIsListening] = useState(false);
