@@ -122,9 +122,9 @@ INSERT INTO feedbacks (customer_id, product_id, rating, comment) VALUES (9, 8, 4
 
 
 -- Insert data into admin table
-INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'One', 'admin1@example.com', 1);
-INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'Two', 'admin2@example.com', 2);
-INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'Three', 'admin3@example.com', 3);
+INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'One', 'admin1@example.com', 'Zy12Xw34AbCD56Ef789G');
+INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'Two', 'admin2@example.com', 'Hi01Jk23LMn45OpQR678');
+INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'Three', 'admin3@example.com', 'ST90Uv12WX34YZ56abCD3');
 
 -- Insert data into voice_queries table
 INSERT INTO voice_queries (customer_id, query_text, response_text) VALUES (1, 'Can you recommend the newest phone?', 'GrapePhone X12.');
