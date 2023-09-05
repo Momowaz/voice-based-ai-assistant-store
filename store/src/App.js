@@ -9,6 +9,9 @@ import ProductsByCategory from './pages/ProductsByCategory';
 import Profile from './components/Profile';
 import Nav from './components/Nav';
 import ProductDetails from './pages/ProductDetails';
+import Cart from './pages/Cart';
+import AdminLogin from './pages/AdminLogin';
+import CheckoutSuccess from './components/checkoutSuccess';
 import Logout from './components/Logout';
 
 function App() {
@@ -17,7 +20,7 @@ function App() {
     <Router>
       <Nav/>
       <Routes>
-      <Route path='/Home' exact element={<Home/>} />
+      <Route path='/' exact element={<Home/>} />
         <Route path='/Categories' exact element={<Categories/>} />
         <Route path='/Products' element={<Products/>} />
         <Route path="/products/:category_id" element={<ProductsByCategory />} />
@@ -26,6 +29,8 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/logout' element={<Logout/>} />
         <Route path='/profile' element={<Profile/>} />
+        <Route path='/cart' element={<Cart/>} />
+        <Route path="/pages/AdminLogin" element={<AdminLogin/>} />
         <Route path='/cart' element={<Cart/>} /> {/* If need renaming, also need to change the name in backend file stripe.js line 26.*/}
         <Route path='/checkout-success' element={<CheckoutSuccess/>} />
       </Routes>
