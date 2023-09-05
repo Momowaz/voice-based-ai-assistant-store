@@ -26,6 +26,8 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/logout' element={<Logout/>} />
         <Route path='/profile' element={<Profile/>} />
+        <Route path='/cart' element={<Cart/>} /> {/* If need renaming, also need to change the name in backend file stripe.js line 26.*/}
+        <Route path='/checkout-success' element={<CheckoutSuccess/>} />
       </Routes>
     </Router>
     
