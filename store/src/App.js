@@ -11,7 +11,7 @@ import Nav from './components/Nav';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import AdminLogin from './pages/AdminLogin';
-
+import CheckoutSuccess from './components/checkoutSuccess';
 import Logout from './components/Logout';
 
 function App() {

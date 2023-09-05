@@ -13,24 +13,29 @@ router.use(
 );
 
 
-router.post("./", async (req, res) => {
+router.post("/authorization", async (req, res) => {
+  console.log('whats here..', req.body)
 
+  const  { email } = req.body; 
   try {
-    const { last_name, email } = req.body; 
-    const { rows } = await pool.query('SELECT * FROM admin WHERE last_name = $1 AND email = $2', [last_name, email]);
+    const { rows } = await pool.query('SELECT * FROM admin WHERE email = $1', [email]);
 
-    if (rows.length === 1) {
-      // Authentication successful, store user data in the session
-      req.session.user = rows[0];
+    if (rows.length > 0) {
+      res.status(200).json({exist: true});
      
     } else {
-      // Authentication failed
-      res.status(401).send('Unauthorized');
+      // Email doesn't exist in the database
+      res.status(200).json({ exists: false });
     }
   } catch (error) {
     console.error('Authentication error:', error);
     res.status(500).send('Internal Server Error');
   }
 });
+
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.status(200).json({ message: 'Logout successful'})
+})
 
 module.exports = router;

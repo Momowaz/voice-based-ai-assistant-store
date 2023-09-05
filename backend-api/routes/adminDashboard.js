@@ -1,8 +1,20 @@
 // routes/apiProducts.js
 const express = require('express');
+const session = require('express-session');
 const pool = require('../Pool');
 
 const router = express.Router();
+// const router = require('../server');
+
+router.use(
+  session({
+      secret: '07840537458c3a0e8ca8ff5657f63411409f4cc3946e9df4cfc930c144fa7949',
+      resave: false,
+      saveUninitialized: true,
+      cookie: { secure: false },
+  })
+);
+
 
 // Get all products
 router.get('/allProducts', async (req, res) => {
@@ -17,6 +29,7 @@ router.get('/allProducts', async (req, res) => {
 
 // Create a new product
 router.post('/newProduct', async (req, res) => {
+  console.log("new product api", req.body)
   try {
     const { name, price, stock_quantity, description, category_id } = req.body;
     const query = 'INSERT INTO products (name, price, stock_quantity, description, category_id) VALUES ($1, $2, $3, $4, $5) RETURNING *';

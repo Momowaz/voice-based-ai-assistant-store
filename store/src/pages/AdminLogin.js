@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { styled } from '@mui/system'; // Import styled from @mui/system
+import { styled } from '@mui/system';
+import AdminDashboard from "./AdminDashboard"
 
 // Create styled components
 const Wrapper = styled('div')({
@@ -58,28 +59,28 @@ const AdminLogin = () => {
     const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [errorMessage, setErrorMessage] = useState('');
   const [user, setUser] = useState('');
-  // another state for user
+  
+  const isLoggedIn = user === 'Loggedin';
 
   // Define the initial form values
   const initialValues = {
-    lastname: '',
     email: '',
   };
 
   // Define validation schema
   const validationSchema = Yup.object().shape({
-    lastname: Yup.string().required('Lastname is required'),
+    // lastname: Yup.string().required('Lastname is required'),
     email: Yup.string().email('Invalid email').required('Email is required'),
   });
 
   // Handle form submission
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await axios.post(`${BACKEND_URL}/api/AdminLoginPage`, values); // Adjust the URL as needed
+      const response = await axios.post(`${BACKEND_URL}/api/AdminLoginPage/authorization`, values);
 
       if (response.status === 200) {
         // Successful login, redirect to the admin dashboard
-        console.log("Loggedin")
+        setUser("Loggedin");
         //add into user state
       }
     } catch (error) {
@@ -95,16 +96,22 @@ const AdminLogin = () => {
   return (
 
     //if user <AdminPage/>
+    <>
+    {isLoggedIn ? (
+        <AdminDashboard />
+      ) : (
+      
+    
     <Wrapper>
       <Title>Admin Login</Title>
       <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
         {({ isSubmitting }) => (
           <Form>
-            <InputField>
+            {/* <InputField>
               <Label htmlFor="id">Lastname:</Label>
               <Field as={Input} type="text" id="lastname" name="lastname" />
               <ErrorMessage name="lastname" component={ErrorMessageText} />
-            </InputField>
+            </InputField> */}
 
             <InputField>
               <Label htmlFor="email">Email:</Label>
@@ -124,6 +131,8 @@ const AdminLogin = () => {
         )}
       </Formik>
     </Wrapper>
+      )}
+  </>
   );
 };
 

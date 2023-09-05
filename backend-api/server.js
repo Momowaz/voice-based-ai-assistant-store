@@ -23,13 +23,13 @@ const openai = new OpenAI({
 
 const apiProducts = require("./routes/apiProducts");
 const apiCart = require("./routes/apiCart");
-const adminLoginPage = require("./routes/AdminLoginPage");
-const adminPage = require("./routes/adminPage");
+const adminDashboard = require("./routes/adminDashboard");
+const AdminLoginPage = require("./routes/AdminLoginPage");
 
 app.use("/api/products", apiProducts);
 app.use("/api/cart", apiCart);
-app.use("/api/AdminLoginPage", adminLoginPage);
-app.use("/api/adminPage", adminPage)
+app.use("/api/AdminLoginPage", AdminLoginPage);
+app.use("/api/adminDashboard", adminDashboard)
 
 app.use(
   session({
