@@ -5,6 +5,23 @@ import { Link } from 'react-router-dom';
 
 function NavBar() {
   const { user, isAuthenticated} = useAuth0();
+  function renderLogin(){
+    if (isAuthenticated) {
+          
+      return (<Button color="inherit" component={Link} to="/logout">
+              Logout
+              </Button>)
+      
+      }
+    else {
+      return (<Button color="inherit" component={Link} to="/login">
+         Login
+       </Button>)
+      }
+
+
+  }
+
   return (
     <AppBar position="static">
       <Toolbar>
@@ -20,18 +37,11 @@ function NavBar() {
         <Button color="inherit" component={Link} to="/speechAI">
           Ask AI
         </Button>
-        {/* if (isAuthenticated) {
-          <Box ml="auto">
-          <Button color="inherit" component={Link} to="/logout">
-            Logout
-          </Button>
-          </Box>
-          }
-        else { */}
-          <Box ml="auto">
-          <Button color="inherit" component={Link} to="/login">
-            Login
-          </Button>
+        <Box ml="auto">
+        {renderLogin()}
+        
+          
+          
           <Button color="inherit" component={Link} to="/profile">
             Profile
           </Button>

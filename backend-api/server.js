@@ -3,7 +3,7 @@ const express = require("express");
 const OpenAI = require('openai');
 const cors = require('cors');
 const { Pool } = require('pg');
-
+const database = require("./db/database")
 
 const app = express();
 app.use(express.json());
@@ -81,13 +81,21 @@ app.post("/askOpenAI", async (req, res) => {
   }
 
 });
+//Check if customer is already in DB, if not, add the costumer
 
 app.post("/customer/find", (req, res) => {
   const user = req.body;
-  //database.getUserByEmail(email).then((user) => {
-  console.log(user);  
- // })
-
+  console.log(user)
+  database.getUserBysub_id(user.sub)
+  .then((result) => {
+    if(!result) {
+      return database.addCustomer(user);
+    }
+      return res.status(200).send("User Already Exist")
+  })
+  // .then(() => {
+  //   res.status(201).send("OK")  
+  // })
 })
 
 app.listen(port, () => console.log(`Server is running on port ${port}!!`));
