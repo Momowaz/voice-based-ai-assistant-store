@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const AWS = require('aws-sdk');
-const database = require("../db/database")
+
 
 AWS.config.update({
   region: 'us-east-1', 
@@ -35,13 +35,7 @@ router.post('/tts', async (req, res) => {
   }
 });
 
-router.post("/customer/find", (req, res) => {
-  const email = req.body.email;
-  database.getUserByEmail(email).then((user) => {
-    
-  })
 
-})
 
 
 

@@ -1,14 +1,14 @@
 -- Insert data into customers table
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Mohib', 'Waziri', 'mohib.waziri@example.com', 1);
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yuanyuan', 'Situ', 'yuanyuan.situ@example.com', 2);
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Jorge', 'Salamanca', 'jorge.salamanca@example.com', 3);
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yevheniia', 'Horbachova', 'yevheniia.horbachova@example.com', 4);
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('John', 'Doe', 'john.doe@example.com', 5);
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Jane', 'Smith', 'jane.smith@example.com', 6);
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Alice', 'Johnson', 'alice.johnson@example.com', 7);
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Bob', 'Brown', 'bob.brown@example.com', 8);
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Emily', 'Davis', 'emily.davis@example.com', 9);
-INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Michael', 'Wilson', 'michael.wilson@example.com', 10);
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Mohib', 'Waziri', 'mohib.waziri@example.com', 'auth0|32ea3dbe086f90da1426567e');
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yuanyuan', 'Situ', 'yuanyuan.situ@example.com', 'auth0|16ab3dbe086f90da1423218c');
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Jorge', 'Salamanca', 'jorge.salamanca@example.com', 'auth0|08ed3dbe086f90da1427893b');
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Yevheniia', 'Horbachova', 'yevheniia.horbachova@example.com', 'auth0|42ed3dbe086f90da1678193c');
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('John', 'Doe', 'john.doe@example.com', 'auth0|52bc3dbe086f90da1412345a');
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Jane', 'Smith', 'jane.smith@example.com', 'auth0|60ab3dbe086f90da1424586d');
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Alice', 'Johnson', 'alice.johnson@example.com', 'auth0|77da3dbe086f90da1465432b');
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Bob', 'Brown', 'bob.brown@example.com', 'auth0|84ea3dbe086f90da1426269c');
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Emily', 'Davis', 'emily.davis@example.com', 'auth0|54ea3dbe086f90da1421234d');
+INSERT INTO customers (first_name, last_name, email, sub_id) VALUES ('Michael', 'Wilson', 'michael.wilson@example.com', 'auth0|10ea3dbe086f90da1845969a');
 
 
 -- Insert data into addresses table
