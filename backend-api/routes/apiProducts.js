@@ -1,15 +1,7 @@
 const express = require('express');
 const router  = express.Router();
-const { Pool } = require('pg');
+const pool = require('../Pool');
 
-const pool = new Pool({
-    user: process.env.user,
-    password: process.env.password,
-    host: process.env.host,
-    database: process.env.database
-  })
-
-// Get list of all products
 router.get('/', async (req, res) => {
     try {
       const query = 'SELECT * FROM products';
