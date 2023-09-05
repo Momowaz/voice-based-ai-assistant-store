@@ -31,6 +31,8 @@ function App() {
         <Route path='/profile' element={<Profile/>} />
         <Route path='/cart' element={<Cart/>} />
         <Route path="/pages/AdminLogin" element={<AdminLogin/>} />
+        <Route path='/cart' element={<Cart/>} /> {/* If need renaming, also need to change the name in backend file stripe.js line 26.*/}
+        <Route path='/checkout-success' element={<CheckoutSuccess/>} />
       </Routes>
     </Router>
     
