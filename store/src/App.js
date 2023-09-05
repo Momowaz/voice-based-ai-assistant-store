@@ -9,13 +9,10 @@ import ProductsByCategory from './pages/ProductsByCategory';
 import Profile from './components/Profile';
 import Nav from './components/Nav';
 import ProductDetails from './pages/ProductDetails';
-<<<<<<< HEAD
 import Cart from './pages/Cart';
 import AdminLogin from './pages/AdminLogin';
 
-=======
 import Logout from './components/Logout';
->>>>>>> main
 
 function App() {
 
