@@ -1,5 +1,5 @@
-const checkoutSucess = () => {
+const CheckoutSucess = () => {
   return <h2>Checking out successfully!</h2>
 };
 
-export default checkoutSucess;
+export default CheckoutSucess;
