@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const AWS = require('aws-sdk');
+const stripe = require("./routes/stripe");
 
 
 AWS.config.update({
@@ -36,7 +37,8 @@ router.post('/tts', async (req, res) => {
 });
 
 
-
+// Stripe router
+app.use("/api/stripe", stripe);
 
 
 
