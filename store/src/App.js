@@ -9,6 +9,8 @@ import ProductsByCategory from './pages/ProductsByCategory';
 import Profile from './components/Profile';
 import Nav from './components/Nav';
 import ProductDetails from './pages/ProductDetails';
+import Cart from './pages/Cart';
+import AdminLogin from './pages/AdminLogin';
 
 
 function App() {
@@ -17,7 +19,7 @@ function App() {
     <Router>
       <Nav/>
       <Routes>
-      <Route path='/Home' exact element={<Home/>} />
+      <Route path='/' exact element={<Home/>} />
         <Route path='/Categories' exact element={<Categories/>} />
         <Route path='/Products' element={<Products/>} />
         <Route path="/products/:category_id" element={<ProductsByCategory />} />
@@ -25,6 +27,8 @@ function App() {
         <Route path='/SpeechAI' element={<SpeechAI/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/profile' element={<Profile/>} />
+        <Route path='/cart' element={<Cart/>} />
+        <Route path="/pages/AdminLogin" element={<AdminLogin/>} />
       </Routes>
     </Router>
     

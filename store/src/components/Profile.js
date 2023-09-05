@@ -2,6 +2,10 @@ import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Grid, Typography, Paper, Box } from "@mui/material";
 import axios from "axios";
+
+// Declare userId at the top level of your module
+
+
 const Profile = () => {
   const { user, isAuthenticated } = useAuth0();
   console.log(user);
@@ -9,6 +13,12 @@ const Profile = () => {
   useEffect(() => {
     axios.post("http://localhost:3001/customer/find", user);
   },[])
+
+      const userSubId = user.sub;
+    const parts = userSubId.split("|");
+    const userId = parts[1];
+    console.log('profile user id...', userId);
+
   return (
      isAuthenticated && (
       <Grid
@@ -32,9 +42,6 @@ const Profile = () => {
         </Grid>
       </Grid>
     )
-    
    );
-   
 };
-
 export default Profile;
