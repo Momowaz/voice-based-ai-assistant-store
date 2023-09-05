@@ -9,7 +9,7 @@ import ProductsByCategory from './pages/ProductsByCategory';
 import Profile from './components/Profile';
 import Nav from './components/Nav';
 import ProductDetails from './pages/ProductDetails';
-
+import Logout from './components/Logout';
 
 function App() {
 
@@ -24,6 +24,7 @@ function App() {
         <Route path="/product/:product_id" element={<ProductDetails />} />
         <Route path='/SpeechAI' element={<SpeechAI/>} />
         <Route path='/login' element={<Login/>} />
+        <Route path='/logout' element={<Logout/>} />
         <Route path='/profile' element={<Profile/>} />
       </Routes>
     </Router>
