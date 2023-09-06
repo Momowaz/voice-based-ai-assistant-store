@@ -100,7 +100,7 @@ app.post("/customer/find", (req, res) => {
     if(!result) {
       return database.addCustomer(user);
     }
-      return res.status(200).send("User Already Exist")
+      return res.send(result)
   })
   // .then(() => {
   //   res.status(201).send("OK")  

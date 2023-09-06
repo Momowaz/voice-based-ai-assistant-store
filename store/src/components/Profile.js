@@ -8,10 +8,14 @@ import axios from "axios";
 
 const Profile = () => {
   const { user, isAuthenticated } = useAuth0();
-  console.log(user);
-  
   useEffect(() => {
-    axios.post("http://localhost:3001/customer/find", user);
+    axios.post("http://localhost:3001/customer/find", user)
+    .then(res => {
+        const userId = res.data[0].id;
+        window.sessionStorage.setItem("userId", userId);
+      //  const sessionUser = window.sessionStorage.getItem("userId");
+        
+    })
   },[])
 
       const userSubId = user.sub;
