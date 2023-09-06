@@ -25,11 +25,14 @@ const apiProducts = require("./routes/apiProducts");
 const apiCart = require("./routes/apiCart");
 const adminDashboard = require("./routes/adminDashboard");
 const AdminLoginPage = require("./routes/AdminLoginPage");
+const stripeRouter = require('./routes/stripe');
+
 
 app.use("/api/products", apiProducts);
 app.use("/api/cart", apiCart);
 app.use("/api/AdminLoginPage", AdminLoginPage);
-app.use("/api/adminDashboard", adminDashboard)
+app.use("/api/adminDashboard", adminDashboard);
+app.use('/api/stripe', stripeRouter);
 
 app.use(
   session({
