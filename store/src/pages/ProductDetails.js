@@ -16,45 +16,55 @@ import {
 const ProductDetails = () => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const { product_id } = useParams(); // Get the product_id from the URL
+  const [productId, setProductId] = useState(null);
   const [product, setProduct] = useState(null);
+  const [userEmail, setUserEmail] = useState(null);
   const [userId, setUserId] = useState(null);
   const [quantity, setQuantity] = useState(1); // Default quantity is 1
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [message, setMessage] = useState('');
-  const { user } = useAuth0();
+  const { user } = useAuth0(); 
 
   useEffect(() => {
     axios.post("http://localhost:3001/customer/find", user);
-    console.log('usersss', user)
-    const userSubId1 = user.sub;
-    const parts = userSubId1.split("|");
-    const lastFourDigits = parts[1].slice(-4);
-    setUserId(lastFourDigits);
-    
+    console.log('usersss', user.email)
+    const email = user.email;
+    setUserEmail(email);
+  }, [user]);
+
+  useEffect(() => {
+   
+    if (userEmail) {
+      axios
+        .get(`http://localhost:3001/customer/findId?email=${userEmail}`)
+        .then((response) => {
+          const fetchedUserId = response.data[0].id;
+          console.log('User ID:', fetchedUserId);
+          setUserId(fetchedUserId)
+        })
+        .catch((error) => {
+          console.error('Error fetching user ID:', error);
+        });
+    }
 
     axios
       .get(`${BACKEND_URL}/api/products/${product_id}`)
       .then((response) => {
-        setProduct(response.data);
+        const getProductId = response.data.id;
+        setProductId(getProductId);
+        setProduct(response.data)
       })
       .catch((error) => {
         console.error('Error fetching product details', error);
       });
-  }, [product_id]);
+  }, [userEmail, product_id]);
 
   const handleAddToCart = () => {
-
-
-    // const userSubId = sessionStorage.getItem('userId');
-    console.log('profile user id from productdetails...', userId);
-    // Send an API request to add the product to the cart with the specified quantity
-    // const userSubId = sessionStorage.getItem('userSubId');
-    
-    axios
-      .post(`${BACKEND_URL}/api/cart/addCart`, {
-        product_id: product.id,
-        quantity,
-        userId
+      axios
+      .post(`${BACKEND_URL}/api/cart/addItem`, {
+        userId,
+        productId,
+        quantity
       })
       .then((response) => {
         const { productName, quantity } = response.data;

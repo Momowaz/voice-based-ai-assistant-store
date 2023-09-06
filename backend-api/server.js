@@ -94,7 +94,6 @@ app.post("/askOpenAI", async (req, res) => {
 
 app.post("/customer/find", (req, res) => {
   const user = req.body;
-  console.log(user)
   database.getUserBysub_id(user.sub)
   .then((result) => {
     if(!result) {
@@ -106,5 +105,16 @@ app.post("/customer/find", (req, res) => {
   //   res.status(201).send("OK")  
   // })
 })
+app.get("/customer/findId", async (req, res) => {
+  const userEmail = req.query.email; 
+  try {
+    const query = 'SELECT id FROM customers WHERE email = $1';
+    const { rows } = await pool.query(query, [userEmail]);
+    res.json(rows);
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    res.status(500).json({ error: 'An error occurred while fetching categories' });
+  }
+});
 
 app.listen(port, () => console.log(`Server is running on port ${port}!!`));
