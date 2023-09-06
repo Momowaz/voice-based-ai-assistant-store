@@ -1,15 +1,16 @@
 import axios from "axios";
 // import {useSelector} from "react-redux";
-import {url} from "../src/api";
+import { url, setHeaders } from "../api";
 
 
 const PayButton = ({ cartItems, userId }) => {
 
   const handleCheckout = () => {
-    axios.post(`${url}/stripe/create-checkout-session`, {
-      cartItems,
-      userId,
-    })
+    axios.post(
+      `${url}/stripe/create-checkout-session`, 
+      { cartItems, userId },
+      setHeaders()
+    )
     .then((res) => {
       if (res.data.url) {
         window.location.href = res.data.url;
