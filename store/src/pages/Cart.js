@@ -10,6 +10,8 @@ import {
   TextField,
 } from '@mui/material';
 
+import PayButton from '../components/payButton';
+
 const Cart = () => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [cartItems, setCartItems] = useState([]);
@@ -137,6 +139,7 @@ const Cart = () => {
         <Typography variant="h6">Total Items: {totalItems}</Typography>
         <Typography variant="h6">Total Price: ${totalPrice.toFixed(2)}</Typography>
       </Box>
+      <PayButton cartItems={cartItems} userId={userId} />
     </div>
   );
 };
