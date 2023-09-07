@@ -9,6 +9,7 @@ import {
   Paper,
   IconButton,
   TextField,
+  Container
 } from '@mui/material';
 
 const Cart = () => {
@@ -17,44 +18,37 @@ const Cart = () => {
   const [totalItems, setTotalItems] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [userEmail, setUserEmail] = useState(null);
-  const [userId, setUserId] = useState(null);
+  const [customerId, setCustomerId] = useState(null);
+  const [loading, setLoading] = useState(true);
   const { user } = useAuth0();
-  
-  useEffect(() => {
-    axios.post("http://localhost:3001/customer/find", user);
-    console.log('usersss', user.email)
-    const email = user.email;
-    setUserEmail(email);
-  }, [user]);
+
 
   useEffect(() => {
-   
-    if (userEmail) {
-      axios
-        .get(`http://localhost:3001/customer/findId?email=${userEmail}`)
-        .then((response) => {
-          const fetchedUserId = response.data[0].id;
-          console.log('User ID:', fetchedUserId);
-          setUserId(fetchedUserId)
-        })
-        .catch((error) => {
-          console.error('Error fetching user ID:', error);
-        });
-    }
+    axios.post(`${BACKEND_URL}/customer/find`, user)
+      .then(res => {
+        const userId = res.data[0].id;
+        window.sessionStorage.setItem("userId", userId);
+        const sessionUser = window.sessionStorage.getItem("userId");
+        console.log('user id from session', sessionUser);
+        setCustomerId(sessionUser);
+      })
+  }, [])
 
-// Fetch cart items for the customer
-axios.get(`http://localhost:3001/cart/${userId}`)
-  .then((response) => {
-    const cartItems = response.data;
+  useEffect(() => {
 
-    // Now you have the cart items, you can use them in your frontend as needed
-    console.log('Cart Items:', cartItems);
-  })
-  .catch((error) => {
-    // Handle error, e.g., show an error message
-    console.error('Error fetching cart items:', error);
-  })
-}, []);
+    // Fetch cart items for the customer
+    axios.get(`${BACKEND_URL}/api/cart/${customerId}`)
+      .then((response) => {
+        const itemsInCart = response.data;
+        setCartItems(itemsInCart);
+        calculateTotals(itemsInCart);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching cart items:', error);
+        setLoading(false);
+      })
+  }, [customerId]);
 
   // Calculate total items and total price
   const calculateTotals = (items) => {
@@ -102,12 +96,19 @@ axios.get(`http://localhost:3001/cart/${userId}`)
   };
 
   return (
-    <div>
+    <Container
+    style={{
+        flexDirection: "column",
+        alignItems: "center", 
+        justifyContent: "center",
+        minHeight: "100vh", 
+    }}
+>
       <h2>Shopping Cart</h2>
       <Grid container spacing={2}>
         {cartItems.map((item) => (
           <Grid item xs={12} key={item.id}>
-            <Paper elevation={3} style={{ padding: '16px', width: '100%' }}>
+            <Paper elevation={3} style={{ padding: '56px', width: '100%' }}>
               <Box display="flex" alignItems="center">
                 <Box flexGrow={1}>
                   <Typography variant="h6">{item.product_name}</Typography>
@@ -157,7 +158,7 @@ axios.get(`http://localhost:3001/cart/${userId}`)
         <Typography variant="h6">Total Items: {totalItems}</Typography>
         <Typography variant="h6">Total Price: ${totalPrice.toFixed(2)}</Typography>
       </Box>
-    </div>
+    </Container>
   );
 };
 

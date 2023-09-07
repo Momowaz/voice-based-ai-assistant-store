@@ -11,7 +11,7 @@ const Home = () => {
                 flexDirection: "column",
                 alignItems: "center", 
                 justifyContent: "center",
-                minHeight: "150vh", 
+                minHeight: "100vh", 
             }}
         >
             <Slider />

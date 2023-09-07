@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import { Card, CardContent, Typography, Grid, CircularProgress } from '@mui/material';
+import { Card, CardContent, Container, Typography, Grid, CircularProgress } from '@mui/material';
 
 const ProductsByCategory = () => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -15,6 +15,7 @@ const ProductsByCategory = () => {
       .get(`${BACKEND_URL}/api/products/category/${category_id}`)
       .then((response) => {
         setProducts(response.data);
+        console.log("response..", response.data)
         setLoading(false); 
       })
       .catch((error) => {
@@ -28,7 +29,21 @@ const ProductsByCategory = () => {
   }
 
   return (
-    <div style={{ padding: '16px' }}>
+    <Container
+    style={{
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      minHeight: "50vh",
+      padding: "12px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center", 
+      justifyContent: "center",
+      textAlign: "center", 
+    }}
+  >
+    <Typography variant="h2">{}</Typography>
       <Grid container spacing={2}>
         {products.map((product) => (
           <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
@@ -49,7 +64,7 @@ const ProductsByCategory = () => {
           </Grid>
         ))}
       </Grid>
-    </div>
+    </Container>
   );
 };
 

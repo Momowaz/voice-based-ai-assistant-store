@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from '@mui/material';
+import { Button, Container } from '@mui/material';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import axios from 'axios';
 import AWS from 'aws-sdk';
@@ -101,7 +101,20 @@ const SpeechAI = () => {
     };
 
     return (
-        <>
+        <Container
+            style={{
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                minHeight: "50vh",
+                padding: "12px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+            }}
+        >
             <div className='container'>
                 <h2>How can I help you?</h2>
                 <br />
@@ -114,21 +127,21 @@ const SpeechAI = () => {
                     <p>{openAIResponse}</p>
                 </div>
 
-                <div className='btn-style'>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={isListening ? stopListening : startListening}
-                        className={isListening ? 'listening' : ''}
-                    >
-                        {isListening ? 'Listening...' : 'Start Asking'}
-                    </Button>
-                    <Button variant="contained" color="secondary" onClick={clearTranscript}>
-                        Clear
-                    </Button>
-                </div>
+
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={isListening ? stopListening : startListening}
+                    className={isListening ? 'listening' : ''}
+                >
+                    {isListening ? 'Listening...' : 'Start Asking'}
+                </Button>
+                <Button variant="contained" color="secondary" onClick={clearTranscript}>
+                    Clear
+                </Button>
+
             </div>
-        </>
+        </Container>
     );
 };
 
