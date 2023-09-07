@@ -12,10 +12,8 @@ const Profile = () => {
     axios.post("http://localhost:3001/customer/find", user)
     .then(res => {
         const userId = res.data[0].id;
-        console.log('user id..ll..', userId)
         window.sessionStorage.setItem("userId", userId);
-       const sessionUser = window.sessionStorage.getItem("userId");
-       console.log('user id from session', sessionUser)
+      //  const sessionUser = window.sessionStorage.getItem("userId");
         
     })
   },[])

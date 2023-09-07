@@ -3,9 +3,13 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Logout = () => {
   const { logout } = useAuth0();
-
+    const handleClick = () => {
+        window.sessionStorage.removeItem("userId")
+        logout({ logoutParams: { returnTo: window.location.origin } })
+        
+    }
   return (
-    <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+    <button onClick={handleClick}>
       Log Out
     </button>
   );
