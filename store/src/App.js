@@ -12,7 +12,6 @@ import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import AdminLogin from './pages/AdminLogin';
 import CheckoutSuccess from './components/checkoutSuccess';
-import Logout from './components/Logout';
 
 function App() {
 
@@ -27,7 +26,6 @@ function App() {
         <Route path="/product/:product_id" element={<ProductDetails />} />
         <Route path='/SpeechAI' element={<SpeechAI/>} />
         <Route path='/login' element={<Login/>} />
-        <Route path='/logout' element={<Logout/>} />
         <Route path='/profile' element={<Profile/>} />
         <Route path='/cart' element={<Cart/>} />
         <Route path="/pages/AdminLogin" element={<AdminLogin/>} />

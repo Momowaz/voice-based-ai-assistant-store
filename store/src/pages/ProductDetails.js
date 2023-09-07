@@ -26,7 +26,7 @@ const ProductDetails = () => {
   const { user } = useAuth0(); 
 
   useEffect(() => {
-    axios.post("http://localhost:3001/customer/find", user);
+    axios.post(`${BACKEND_URL}/customer/find`, user);
     console.log('usersss', user.email)
     const email = user.email;
     setUserEmail(email);
@@ -36,7 +36,7 @@ const ProductDetails = () => {
    
     if (userEmail) {
       axios
-        .get(`http://localhost:3001/customer/findId?email=${userEmail}`)
+        .get(`${BACKEND_URL}/customer/findId?email=${userEmail}`)
         .then((response) => {
           const fetchedUserId = response.data[0].id;
           console.log('User ID:', fetchedUserId);

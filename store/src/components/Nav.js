@@ -4,20 +4,18 @@ import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 function NavBar() {
-  const { user, isAuthenticated} = useAuth0();
-  function renderLogin(){
+  const { user, isAuthenticated } = useAuth0();
+  function renderLogin() {
     if (isAuthenticated) {
-          
-      return (<Button color="inherit" component={Link} to="/logout">
-              Logout
-              </Button>)
-      
-      }
+      return (<Button color="inherit" component={Link} to="/profile">
+        Logout
+      </Button>)
+    }
     else {
       return (<Button color="inherit" component={Link} to="/login">
-         Login
-       </Button>)
-      }
+        Login
+      </Button>)
+    }
 
 
   }
@@ -38,13 +36,7 @@ function NavBar() {
           Ask AI
         </Button>
         <Box ml="auto">
-        {renderLogin()}
-        
-          
-          
-          <Button color="inherit" component={Link} to="/profile">
-            Profile
-          </Button>
+          {renderLogin()}
           <Button color="inherit" component={Link} to="/cart">
             Cart
           </Button>

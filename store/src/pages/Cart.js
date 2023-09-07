@@ -9,6 +9,7 @@ import {
   Paper,
   IconButton,
   TextField,
+  Container
 } from '@mui/material';
 
 const Cart = () => {
@@ -21,12 +22,18 @@ const Cart = () => {
   const [loading, setLoading] = useState(true);
   const { user } = useAuth0();
 
+
   useEffect(() => {
-    const sessionUser = window.sessionStorage.getItem("userId");
-    console.log('user id from session', sessionUser);
-    setCustomerId(sessionUser);
-  }, []);
-  
+    axios.post(`${BACKEND_URL}/customer/find`, user)
+      .then(res => {
+        const userId = res.data[0].id;
+        window.sessionStorage.setItem("userId", userId);
+        const sessionUser = window.sessionStorage.getItem("userId");
+        console.log('user id from session', sessionUser);
+        setCustomerId(sessionUser);
+      })
+  }, [])
+
   useEffect(() => {
 
     // Fetch cart items for the customer
@@ -36,12 +43,8 @@ const Cart = () => {
         setCartItems(itemsInCart);
         calculateTotals(itemsInCart);
         setLoading(false);
-
-        // Now you have the cart items, you can use them in your frontend as needed
-        console.log('Cart Items:', itemsInCart);
       })
       .catch((error) => {
-        // Handle error, e.g., show an error message
         console.error('Error fetching cart items:', error);
         setLoading(false);
       })
@@ -93,12 +96,19 @@ const Cart = () => {
   };
 
   return (
-    <div>
+    <Container
+    style={{
+        flexDirection: "column",
+        alignItems: "center", 
+        justifyContent: "center",
+        minHeight: "100vh", 
+    }}
+>
       <h2>Shopping Cart</h2>
       <Grid container spacing={2}>
         {cartItems.map((item) => (
           <Grid item xs={12} key={item.id}>
-            <Paper elevation={3} style={{ padding: '16px', width: '100%' }}>
+            <Paper elevation={3} style={{ padding: '56px', width: '100%' }}>
               <Box display="flex" alignItems="center">
                 <Box flexGrow={1}>
                   <Typography variant="h6">{item.product_name}</Typography>
@@ -148,7 +158,7 @@ const Cart = () => {
         <Typography variant="h6">Total Items: {totalItems}</Typography>
         <Typography variant="h6">Total Price: ${totalPrice.toFixed(2)}</Typography>
       </Box>
-    </div>
+    </Container>
   );
 };
 
