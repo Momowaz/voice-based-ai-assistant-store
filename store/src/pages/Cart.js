@@ -13,42 +13,49 @@ import {
 } from '@mui/material';
 
 const Cart = () => {
+  console.log('cart testing...');
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [cartItems, setCartItems] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [userEmail, setUserEmail] = useState(null);
-  const [customerId, setCustomerId] = useState(null);
   const [loading, setLoading] = useState(true);
   const { user } = useAuth0();
+  const [userId, setUserId] = useState(null);
 
 
-  useEffect(() => {
-    axios.post(`${BACKEND_URL}/customer/find`, user)
-      .then(res => {
-        const userId = res.data[0].id;
-        window.sessionStorage.setItem("userId", userId);
-        const sessionUser = window.sessionStorage.getItem("userId");
-        console.log('user id from session', sessionUser);
-        setCustomerId(sessionUser);
-      })
-  }, [])
+ useEffect(() => {
+    // Initialize userId from local storage
+    const userIdFromLocalStorage = localStorage.getItem('userId');
+    if (userIdFromLocalStorage) {
+      setUserId(userIdFromLocalStorage);
+    } else {
+      axios.post(`${BACKEND_URL}/customer/find`, user)
+        .then(res => {
+          const userId = res.data[0].id;
+          // Save userId in local storage
+          localStorage.setItem('userId', userId);
+          setUserId(userId);
+        })
+        .catch(error => {
+          console.error('Error fetching user data:', error);
+        });
+    }
 
-  useEffect(() => {
-
-    // Fetch cart items for the customer
-    axios.get(`${BACKEND_URL}/api/cart/${customerId}`)
-      .then((response) => {
-        const itemsInCart = response.data;
-        setCartItems(itemsInCart);
-        calculateTotals(itemsInCart);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error fetching cart items:', error);
-        setLoading(false);
-      })
-  }, [customerId]);
+    if (userId) {
+      // Use the userId stored in state to send requests to the backend
+      axios.get(`${BACKEND_URL}/api/cart/${userId}`)
+        .then((response) => {
+          const itemsInCart = response.data;
+          setCartItems(itemsInCart);
+          calculateTotals(itemsInCart);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error('Error fetching cart items:', error);
+          setLoading(false);
+        });
+    }
+  }, [userId]);
 
   // Calculate total items and total price
   const calculateTotals = (items) => {
