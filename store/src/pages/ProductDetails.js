@@ -19,7 +19,7 @@ const ProductDetails = () => {
   const [productId, setProductId] = useState(null);
   const [product, setProduct] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
-  const [userId, setUserId] = useState(null);
+  const [customerId, setCustomerId] = useState('');
   const [quantity, setQuantity] = useState(1); // Default quantity is 1
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [message, setMessage] = useState('');
@@ -40,7 +40,7 @@ const ProductDetails = () => {
         .then((response) => {
           const fetchedUserId = response.data[0].id;
           console.log('User ID:', fetchedUserId);
-          setUserId(fetchedUserId)
+          setCustomerId(fetchedUserId)
         })
         .catch((error) => {
           console.error('Error fetching user ID:', error);
@@ -60,9 +60,10 @@ const ProductDetails = () => {
   }, [userEmail, product_id]);
 
   const handleAddToCart = () => {
+    
       axios
       .post(`${BACKEND_URL}/api/cart/addItem`, {
-        userId,
+        customerId,
         productId,
         quantity
       })

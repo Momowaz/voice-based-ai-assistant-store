@@ -17,44 +17,35 @@ const Cart = () => {
   const [totalItems, setTotalItems] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [userEmail, setUserEmail] = useState(null);
-  const [userId, setUserId] = useState(null);
+  const [customerId, setCustomerId] = useState(null);
+  const [loading, setLoading] = useState(true);
   const { user } = useAuth0();
+
+  useEffect(() => {
+    const sessionUser = window.sessionStorage.getItem("userId");
+    console.log('user id from session', sessionUser);
+    setCustomerId(sessionUser);
+  }, []);
   
   useEffect(() => {
-    axios.post("http://localhost:3001/customer/find", user);
-    console.log('usersss', user.email)
-    const email = user.email;
-    setUserEmail(email);
-  }, [user]);
 
-  useEffect(() => {
-   
-    if (userEmail) {
-      axios
-        .get(`http://localhost:3001/customer/findId?email=${userEmail}`)
-        .then((response) => {
-          const fetchedUserId = response.data[0].id;
-          console.log('User ID:', fetchedUserId);
-          setUserId(fetchedUserId)
-        })
-        .catch((error) => {
-          console.error('Error fetching user ID:', error);
-        });
-    }
+    // Fetch cart items for the customer
+    axios.get(`${BACKEND_URL}/api/cart/${customerId}`)
+      .then((response) => {
+        const itemsInCart = response.data;
+        setCartItems(itemsInCart);
+        calculateTotals(itemsInCart);
+        setLoading(false);
 
-// Fetch cart items for the customer
-axios.get(`http://localhost:3001/cart/${userId}`)
-  .then((response) => {
-    const cartItems = response.data;
-
-    // Now you have the cart items, you can use them in your frontend as needed
-    console.log('Cart Items:', cartItems);
-  })
-  .catch((error) => {
-    // Handle error, e.g., show an error message
-    console.error('Error fetching cart items:', error);
-  })
-}, []);
+        // Now you have the cart items, you can use them in your frontend as needed
+        console.log('Cart Items:', itemsInCart);
+      })
+      .catch((error) => {
+        // Handle error, e.g., show an error message
+        console.error('Error fetching cart items:', error);
+        setLoading(false);
+      })
+  }, [customerId]);
 
   // Calculate total items and total price
   const calculateTotals = (items) => {

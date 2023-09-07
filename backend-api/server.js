@@ -99,7 +99,7 @@ app.post("/customer/find", (req, res) => {
     if(!result) {
       return database.addCustomer(user);
     }
-      return res.status(200).send("User Already Exist")
+      return res.send(result)
   })
   // .then(() => {
   //   res.status(201).send("OK")  
@@ -116,5 +116,6 @@ app.get("/customer/findId", async (req, res) => {
     res.status(500).json({ error: 'An error occurred while fetching categories' });
   }
 });
+
 
 app.listen(port, () => console.log(`Server is running on port ${port}!!`));
