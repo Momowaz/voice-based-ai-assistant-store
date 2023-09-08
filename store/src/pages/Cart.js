@@ -12,6 +12,8 @@ import {
   Container
 } from '@mui/material';
 
+import PayButton from '../components/payButton';
+
 const Cart = () => {
   console.log('cart testing...');
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
