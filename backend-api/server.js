@@ -27,7 +27,6 @@ const adminDashboard = require("./routes/adminDashboard");
 const AdminLoginPage = require("./routes/AdminLoginPage");
 const searchProduct = require("./routes/searchProduct");
 
-
 app.use("/api/products", apiProducts);
 app.use("/api/cart", apiCart);
 app.use("/api/AdminLoginPage", AdminLoginPage);
