@@ -25,7 +25,7 @@ const Categories = () => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          minHeight: "30vh",
+        //   minHeight: "100vh",
           padding: "12px",
           display: "flex",
           flexDirection: "column",
