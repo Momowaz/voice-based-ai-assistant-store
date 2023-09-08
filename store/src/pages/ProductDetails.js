@@ -104,6 +104,7 @@ const ProductDetails = () => {
             onChange={(e) => setQuantity(e.target.value)}
             inputProps={{ min: 1 }}
           />
+          <br/>
           <Button
             variant="contained"
             color="primary"

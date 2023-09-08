@@ -25,11 +25,13 @@ const apiProducts = require("./routes/apiProducts");
 const apiCart = require("./routes/apiCart");
 const adminDashboard = require("./routes/adminDashboard");
 const AdminLoginPage = require("./routes/AdminLoginPage");
+const searchProduct = require("./routes/searchProduct");
 
 app.use("/api/products", apiProducts);
 app.use("/api/cart", apiCart);
 app.use("/api/AdminLoginPage", AdminLoginPage);
 app.use("/api/adminDashboard", adminDashboard)
+app.use("/api/products", searchProduct);
 
 app.use(
   session({

@@ -14,12 +14,13 @@ const SimpleSlider = () => {
     const sliderStyle = {
         width: '80%',
         height: '500px',
-        margin: '0 auto',
+        margin: '0 auto'
+        
     };
 
     const imageStyle = {
         width: '100%',
-        height: '100%',
+        height: '100%'
     };
 
     return (

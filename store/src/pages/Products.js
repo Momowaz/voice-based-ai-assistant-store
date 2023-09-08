@@ -29,7 +29,7 @@ const Products = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "50vh",
+        minHeight: "100vh",
         padding: "12px",
         display: "flex",
         flexDirection: "column",
