@@ -1,14 +1,27 @@
 .footer {
-    background-color: #333;
+  margin-top: 0px;
+  padding-top: 0px;
+  border-top: solid 1px #cccccc;
+
+    /* background-color: #333;
     color: white;
-    padding: 20px 0;
+    padding: 20px;
     text-align: center;
+    margin-top: auto;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column; */
   }
   
   .footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .footer-content p {
+    margin-bottom: 30px;
   }
   
   .footer-links {
@@ -23,7 +36,7 @@
   }
   
   .footer-links a {
-    color: white;
+    color:  rgb(96 101 123);
     text-decoration: none;
   }
   

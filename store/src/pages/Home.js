@@ -6,41 +6,32 @@ import Footer from "../components/Footer";
 
 const Home = () => {
     return (
-        <Container
-            style={{
-                flexDirection: "column",
-                alignItems: "center", 
-                justifyContent: "center",
-                minHeight: "150vh", 
-            }}
-        >
+        <div className="main-container" >
             <Slider />
-            <Paper
+            <div
                 elevation={3}
                 style={{
-                    padding: "22px",
-                    margin: "16px 0",
+                    margin: "10px 0",
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center", 
+                    alignItems: "center",
                     justifyContent: "center",
-                    textAlign: "center", 
-                    gap: 50
-
+                    textAlign: "center",
+                    gap: 20
                 }}
             >
-                <Typography variant="h4">Welcome to Our Store</Typography>
-                <Typography>
-                    Welcome to our store, where effortless discovery meets AI-driven
-                    assistance. Whether you're on the hunt for something specific or
-                    seeking suggestions, we're here to fulfill your every need.
-                </Typography>
+                <p className="main-container__description">
+                    Here effortless discovery meets AI-driven
+                    assistance.
+                    Whether you're on the hunt for something specific or
+                    seeking suggestions, we're here to fulfill your every need!🪄
+                </p>
+                <h4 className="category-container__header">Shop by Category</h4>
 
                 <Categories />
-            </Paper>
-
+            </div>
             <Footer />
-        </Container>
+        </div>
     );
 };
 

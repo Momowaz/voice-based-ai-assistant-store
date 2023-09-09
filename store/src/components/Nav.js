@@ -8,7 +8,7 @@ function NavBar() {
   function renderLogin(){
     if (isAuthenticated) {
           
-      return (<Button color="inherit" component={Link} to="/logout">
+      return (<Button color="black" component={Link} to="/logout">
               Logout
               </Button>)
       
@@ -23,10 +23,10 @@ function NavBar() {
   }
 
   return (
-    <AppBar position="static">
+    <nav className="navbar" position="static">
       <Toolbar>
         <Typography variant="h6" component={Link} to="/" style={{ textDecoration: 'none', color: 'white' }}>
-          Home
+          HOME
         </Typography>
         <Button color="inherit" component={Link} to="/categories">
           Categories
@@ -35,7 +35,7 @@ function NavBar() {
           Products
         </Button>
         <Button color="inherit" component={Link} to="/speechAI">
-          Ask AI
+          Ask AI🤖
         </Button>
         <Box ml="auto">
         {renderLogin()}
@@ -51,7 +51,7 @@ function NavBar() {
         </Box>
         {/* } */}
       </Toolbar>
-    </AppBar>
+    </nav>
   );
 }
 

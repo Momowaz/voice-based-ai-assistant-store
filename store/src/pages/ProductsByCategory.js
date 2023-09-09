@@ -28,24 +28,27 @@ const ProductsByCategory = () => {
   }
 
   return (
-    <div style={{ padding: '16px' }}>
+    <div style={{ paddingTop: '120px' }}>
       <Grid container spacing={2}>
         {products.map((product) => (
           <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-            <Card style={{ height: '100%' }}>
-              <CardContent>
-                <Typography variant="h6" component="div">
+            <div className="item-card">
+              <div className="item-container">
+              <div className="item__image"></div>
+                <h4 className="item__name">
                   {product.name}
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  Price: ${product.price}
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  Description: {product.description}
-                </Typography>
+                </h4>
+                <div className="item__description">
+                 {product.description}
+                </div>
+                <div className="item__price">
+                ${product.price}
+                </div>
+                <div className="item__details">
                 <Link to={`/product/${product.id}`}>View Details</Link>
-              </CardContent>
-            </Card>
+                </div>
+              </div>
+            </div>
           </Grid>
         ))}
       </Grid>

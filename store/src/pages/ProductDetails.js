@@ -26,10 +26,10 @@ const ProductDetails = () => {
   useEffect(() => {
     axios.post("http://localhost:3001/customer/find", user);
     console.log('usersss', user)
-    const userSubId1 = user.sub;
-    const parts = userSubId1.split("|");
-    const lastFourDigits = parts[1].slice(-4);
-    setUserId(lastFourDigits);
+//    const userSubId1 = user.sub;
+//    const parts = userSubId1.split("|");
+//    const lastFourDigits = parts[1].slice(-4);
+//   setUserId(lastFourDigits);
     
 
     axios
@@ -75,16 +75,18 @@ const ProductDetails = () => {
   }
 
   return (
-    <div style={{ padding: '16px' }}>
-      <Card style={{ height: '100%' }}>
-        <CardContent>
-          <Typography variant="h4" component="div">
+    <div style={{ paddingTop: '120px' }}>
+      <div style={{ height: '100%' }}>
+        <div className='item-details__container'>
+        <div className="item-details__image"></div>
+        <div className='item-details__info'>
+          <div className='item-details__header'>
             {product.name}
-          </Typography>
-          <Typography variant="subtitle1">Category ID: {product.category_id}</Typography>
-          <Typography variant="body1">Price: ${product.price}</Typography>
-          <Typography variant="body1">Stock Quantity: {product.stock_quantity}</Typography>
-          <Typography variant="body2">Description: {product.description}</Typography>
+          </div>
+          <div className='item-details__category'>Category ID: {product.category_id}</div>
+          <div className='item-details__quantity'>{product.stock_quantity} in stock</div>
+          <div className='item-details__description'>{product.description}</div>
+          <div className='item-details__price'>${product.price}</div>
           <TextField
             type="number"
             label="Quantity"
@@ -93,12 +95,12 @@ const ProductDetails = () => {
             onChange={(e) => setQuantity(e.target.value)}
             inputProps={{ min: 1 }}
           />
-          <Button
+
+          <Button 
             variant="contained"
-            color="primary"
             onClick={handleAddToCart}
-          >
-            Add to Cart
+          ><div className="item-details__button">
+            Add to Carts </div>
           </Button>
           <Snackbar
             open={snackbarOpen}
@@ -109,8 +111,9 @@ const ProductDetails = () => {
               {message}
             </Alert>
           </Snackbar>
-        </CardContent>
-      </Card>
+        </div>
+        </div>
+      </div>
     </div>
   );
 };
