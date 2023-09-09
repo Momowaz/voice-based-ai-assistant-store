@@ -167,6 +167,7 @@ const Cart = () => {
         <Typography variant="h6">Total Items: {totalItems}</Typography>
         <Typography variant="h6">Total Price: ${totalPrice.toFixed(2)}</Typography>
       </Box>
+      <PayButton cartItems={cartItems} userId={userId} />
     </Container>
   );
 };
