@@ -54,7 +54,6 @@ INSERT INTO cart (customer_id) VALUES (5);
 INSERT INTO cart (customer_id) VALUES (6);
 INSERT INTO cart (customer_id) VALUES (7);
 INSERT INTO cart (customer_id) VALUES (8);
-INSERT INTO cart (customer_id) VALUES (9);
 
 
 -- Insert data into cart_items table
@@ -65,7 +64,6 @@ INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (5, 7, 2, 1
 INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (6, 8, 1, 5000.00);
 INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (7, 9, 3, 60.00);
 INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (8, 3, 2, 150.00);
-INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (9, 7, 1, 200.00);
 
 
 -- Insert data into orders table
@@ -76,7 +74,6 @@ INSERT INTO orders (customer_id, order_date, total_amount) VALUES (5, '2023-08-2
 INSERT INTO orders (customer_id, order_date, total_amount) VALUES (7, '2023-02-15', 6000.00);
 INSERT INTO orders (customer_id, order_date, total_amount) VALUES (6, '2022-12-10', 180.00);
 INSERT INTO orders (customer_id, order_date, total_amount) VALUES (8, '2023-07-05', 300.00);
-INSERT INTO orders (customer_id, order_date, total_amount) VALUES (9, '2023-06-20', 2000.00);
 
 
 -- Insert data into order_items table
@@ -99,7 +96,6 @@ INSERT INTO wishlist (customer_id) VALUES (5);
 INSERT INTO wishlist (customer_id) VALUES (6);
 INSERT INTO wishlist (customer_id) VALUES (7);
 INSERT INTO wishlist (customer_id) VALUES (8);
-INSERT INTO wishlist (customer_id) VALUES (9);
 
 
 -- Insert data into wishlist_items table

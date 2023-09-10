@@ -54,7 +54,7 @@ CREATE TABLE products (
 -- Creating the cart table
 CREATE TABLE cart (
   id SERIAL PRIMARY KEY,
-  customer_id INT REFERENCES customers(id)
+  customer_id INT REFERENCES customers(id) UNIQUE
 );
 
 -- Creating the cart_items table

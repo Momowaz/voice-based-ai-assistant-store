@@ -1,12 +1,5 @@
 'use strict';
-const { Pool } = require('pg');
-
-const pool = new Pool({
-  user: 'labber',
-  password: '123',
-  host: 'localhost',
-  database: 'store_ai'
-});
+const pool = require('../Pool');
 
 const getUserBysub_id = function(sub_id) {
   const queryString = `

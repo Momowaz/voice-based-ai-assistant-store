@@ -1,8 +1,7 @@
 import React from "react";
-import { Container, Typography, Paper, Box } from "@mui/material";
 import Slider from "../components/Slider"; 
 import Categories from "../pages/Categories";
-import Footer from "../components/Footer";
+
 
 const Home = () => {
     return (
@@ -30,7 +29,6 @@ const Home = () => {
 
                 <Categories />
             </div>
-            <Footer />
         </div>
     );
 };

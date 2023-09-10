@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import { Card, CardContent, Typography, Grid, CircularProgress } from '@mui/material';
+import { Card, CardContent, Container, Typography, Grid, CircularProgress } from '@mui/material';
 
 const ProductsByCategory = () => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -15,6 +15,7 @@ const ProductsByCategory = () => {
       .get(`${BACKEND_URL}/api/products/category/${category_id}`)
       .then((response) => {
         setProducts(response.data);
+        console.log("response..", response.data)
         setLoading(false); 
       })
       .catch((error) => {

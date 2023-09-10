@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
+import SearchResults from '../pages/SearchResults';
+import { useNavigate } from 'react-router-dom';
+import { IconButton } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import PersonIcon from '@mui/icons-material/Person';
+import ChatIcon from "@mui/icons-material/Chat";
+import Icon from "@mui/material/Icon";
+
 
 function NavBar() {
   const { user, isAuthenticated} = useAuth0();
@@ -38,18 +47,12 @@ function NavBar() {
           Ask AI🤖
         </Button>
         <Box ml="auto">
-        {renderLogin()}
-        
-          
-          
-          <Button color="inherit" component={Link} to="/profile">
-            Profile
-          </Button>
-          <Button color="inherit" component={Link} to="/cart">
-            Cart
-          </Button>
+          {renderLogin()}
+          <IconButton color="inherit" fontSize="large" aria-label="Cart" component={Link} to="/cart">
+            <ShoppingCartIcon />
+          </IconButton>
         </Box>
-        {/* } */}
+
       </Toolbar>
     </nav>
   );

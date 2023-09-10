@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Products from './pages/Products';
 import Categories from './pages/Categories';
-import Login from './components/Login';
 import ProductsByCategory from './pages/ProductsByCategory';
 import Profile from './components/Profile';
 import Nav from './components/Nav';
@@ -12,7 +11,8 @@ import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import AdminLogin from './pages/AdminLogin';
 import CheckoutSuccess from './components/checkoutSuccess';
-import Logout from './components/Logout';
+import SearchResults from './pages/SearchResults';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -26,14 +26,13 @@ function App() {
         <Route path="/products/:category_id" element={<ProductsByCategory />} />
         <Route path="/product/:product_id" element={<ProductDetails />} />
         <Route path='/SpeechAI' element={<SpeechAI/>} />
-        <Route path='/login' element={<Login/>} />
-        <Route path='/logout' element={<Logout/>} />
         <Route path='/profile' element={<Profile/>} />
-        <Route path='/cart' element={<Cart/>} />
         <Route path="/pages/AdminLogin" element={<AdminLogin/>} />
-        <Route path='/cart' element={<Cart/>} /> {/* If need renaming, also need to change the name in backend file stripe.js line 26.*/}
+        <Route path='/cart' element={<Cart/>} />
         <Route path='/checkout-success' element={<CheckoutSuccess/>} />
+        <Route path='/search-results' element={<SearchResults/>} />
       </Routes>
+      <Footer />
     </Router>
     
   );

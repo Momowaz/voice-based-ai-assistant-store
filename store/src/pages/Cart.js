@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useAuth0 } from "@auth0/auth0-react";
 import {
   Box,
   Typography,
@@ -8,33 +9,55 @@ import {
   Paper,
   IconButton,
   TextField,
+  Container
 } from '@mui/material';
 
+import PayButton from '../components/payButton';
+
 const Cart = () => {
+  console.log('cart testing...');
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [cartItems, setCartItems] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
-  
-    useEffect(() => {
-      // Fetch cart items
+  const [loading, setLoading] = useState(true);
+  const { user } = useAuth0();
+  const [userId, setUserId] = useState(null);
 
-      const userSubId = sessionStorage.getItem('userSubId');
-      
-  axios
-        .get(`${BACKEND_URL}/api/cart`, {
-          headers: {
-            'X-User-SubId': userSubId,
-          },
+
+ useEffect(() => {
+    // Initialize userId from local storage
+    const userIdFromLocalStorage = localStorage.getItem('userId');
+    if (userIdFromLocalStorage) {
+      setUserId(userIdFromLocalStorage);
+    } else {
+      axios.post(`${BACKEND_URL}/customer/find`, user)
+        .then(res => {
+          const userId = res.data[0].id;
+          // Save userId in local storage
+          localStorage.setItem('userId', userId);
+          setUserId(userId);
         })
+        .catch(error => {
+          console.error('Error fetching user data:', error);
+        });
+    }
+
+    if (userId) {
+      // Use the userId stored in state to send requests to the backend
+      axios.get(`${BACKEND_URL}/api/cart/${userId}`)
         .then((response) => {
-          setCartItems(response.data);
-          calculateTotals(response.data);
+          const itemsInCart = response.data;
+          setCartItems(itemsInCart);
+          calculateTotals(itemsInCart);
+          setLoading(false);
         })
         .catch((error) => {
-          console.error('Error fetching cart items', error);
+          console.error('Error fetching cart items:', error);
+          setLoading(false);
         });
-    }, []);
+    }
+  }, [userId]);
 
   // Calculate total items and total price
   const calculateTotals = (items) => {
@@ -82,12 +105,19 @@ const Cart = () => {
   };
 
   return (
-    <div>
+    <Container
+    style={{
+        flexDirection: "column",
+        alignItems: "center", 
+        justifyContent: "center",
+        minHeight: "100vh", 
+    }}
+>
       <h2>Shopping Cart</h2>
       <Grid container spacing={2}>
         {cartItems.map((item) => (
           <Grid item xs={12} key={item.id}>
-            <Paper elevation={3} style={{ padding: '16px', width: '100%' }}>
+            <Paper elevation={3} style={{ padding: '56px', width: '100%' }}>
               <Box display="flex" alignItems="center">
                 <Box flexGrow={1}>
                   <Typography variant="h6">{item.product_name}</Typography>
@@ -137,7 +167,8 @@ const Cart = () => {
         <Typography variant="h6">Total Items: {totalItems}</Typography>
         <Typography variant="h6">Total Price: ${totalPrice.toFixed(2)}</Typography>
       </Box>
-    </div>
+      <PayButton cartItems={cartItems} userId={userId} />
+    </Container>
   );
 };
 
