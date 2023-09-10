@@ -20,37 +20,25 @@ const Categories = () => {
     }, []);
 
     return (
-        <Container
-        style={{
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        //   minHeight: "100vh",
-          padding: "12px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center", 
-          justifyContent: "center",
-          textAlign: "center", 
-        }}
-      >
-        <h2>Categories</h2>
-            <Grid container spacing={2}>
+        <div style={{ padding: '100px' }}> 
+            <Grid container spacing={4} style={{ justifyContent: 'space-around' }}>
                 {categories.map(category => (
                     <Grid item key={category.id} xs={12} sm={6} md={4} lg={3}>
                         <Link to={`/products/${category.id}`} component={ProductsByCategory} style={{ textDecoration: 'none'}}>
-                        <Card style={{ height: '100%' }}> 
+
+                        <div className="category-card">
                             <CardContent>
-                                <Typography variant="h6" component="div">
-                                    {category.name}
-                                </Typography>
+                                <div className="category-name">
+                                    <p>{category.name}</p>
+                                </div>
                             </CardContent>
-                        </Card>
+                            </div>
+
                         </Link>
                     </Grid>
                 ))}
             </Grid>
-        </Container>
+        </div>
     );
 }
 export default Categories;
