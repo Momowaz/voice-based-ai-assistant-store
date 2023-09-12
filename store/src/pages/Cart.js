@@ -104,6 +104,15 @@ const Cart = () => {
       });
   };
 
+  const checkoutButton = {
+    marginTop: '10px',
+    marginLeft: '5px',
+    marginRight: '10px',
+    height: '40px',
+    borderRadius: '20px',
+    backgroundColor: '#08DA55',
+  }
+
   return (
     <Container
     style={{
@@ -114,6 +123,7 @@ const Cart = () => {
         minHeight: "100vh", 
     }}
 >s
+<div className='shopping-cart-container'>
       <h2>Shopping Cart</h2>
       <Grid container spacing={2}>
         {cartItems.map((item) => (
@@ -164,11 +174,15 @@ const Cart = () => {
           </Grid>
         ))}
       </Grid>
+      <div className= 'cart-total-container'>
       <Box mt={2}>
         <Typography variant="h6">Total Items: {totalItems}</Typography>
         <Typography variant="h6">Total Price: ${totalPrice.toFixed(2)}</Typography>
       </Box>
-      <PayButton cartItems={cartItems} userId={userId} />
+      </div>
+      <PayButton style={checkoutButton} 
+      cartItems={cartItems} userId={userId} />
+      </div>
     </Container>
   );
 };

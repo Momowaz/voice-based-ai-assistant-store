@@ -376,3 +376,17 @@ margin-top: 15px;
   margin-top: 5px;
   margin-bottom: 10px;
 }
+.shopping-cart-container {
+  box-shadow: 0 4px 8px 0 rgba(117, 117, 117, 0.1);
+  padding: 10px;
+  min-width: 800px;
+  min-height: 420px;
+  border-radius: 20px;
+  margin: auto;
+  text-align: center;
+
+}
+
+.cart-total-container {
+  padding-bottom: 100px;
+}
