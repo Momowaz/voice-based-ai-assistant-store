@@ -35,18 +35,16 @@ function App() {
         setResults(response.data);
         setLoading(false);
         setStatus(true);
+
+        if (status) {
+              navigate('/search-results');
+            }
       })
       .catch((error) => {
         console.error('Error searching for products:', error);
         setLoading(false);
       });
   };
-
-  useEffect(() => {
-    if (status) {
-      navigate('/search-results');
-    }
-  }, [status, navigate]);
 
   const addToCart = (product) => {
     const updatedCart = [...cart, product];
