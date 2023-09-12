@@ -4,9 +4,11 @@ import {
     CardContent,
     Typography
   } from '@mui/material';
-const SearchResults = ({ results }) => {
+const SearchResults = ({ results, addToCart }) => {
 
-    
+  
+
+    console.log('resilt...', results)
         if (!results || results.length === 0) {
           return <p>No results found.</p>;
         }
@@ -18,7 +20,6 @@ const SearchResults = ({ results }) => {
       {results.map((product) => (
         <div key={product.id}>
           <h3>{product.name}</h3>
-          <p>Price: ${product.price}</p>
           
           <Card style={{ height: '10%' }}>
         <CardContent>
@@ -29,6 +30,7 @@ const SearchResults = ({ results }) => {
           <Typography variant="body1">Price: ${product.price}</Typography>
           <Typography variant="body1">Stock Quantity: {product.stock_quantity}</Typography>
           <Typography variant="body2">Description: {product.description}</Typography>
+          <button onClick={() => addToCart(product)}>Add to Cart</button>
           </CardContent>
           </Card>
         </div>

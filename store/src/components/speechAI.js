@@ -87,7 +87,7 @@ const SpeechAI = () => {
                 },
                 {
                     headers: {
-                        'Authorization': 'Bearer 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',
+                        'Authorization': 'Bearer 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',
                         'Content-Type': 'application/json',
                     },
                 }

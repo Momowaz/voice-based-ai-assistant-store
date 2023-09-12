@@ -61,6 +61,8 @@ app.get('/api/categories', async (req, res) => {
 
 app.post("/askOpenAI", async (req, res) => {
   const { question } = req.body;
+
+  console.log('q...', question)
   try {
     if (question == null) {
       throw new Error("Uh oh, no prompt was provided");
