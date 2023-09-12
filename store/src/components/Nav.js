@@ -23,13 +23,13 @@ function NavBar() {
   function renderLogin(){
     if (isAuthenticated) {
           
-      return (<Button color="black" component={Link} to="/logout">
+      return (<Button color="black" component={Link} style={navButton} to="/logout">
               Logout
               </Button>)
       
       }
     else {
-      return (<Button color="inherit" component={Link} to="/login">
+      return (<Button color="inherit" component={Link} style={navButton} to="/login">
          Login
        </Button>)
       }
@@ -58,23 +58,29 @@ function NavBar() {
   };
 
   const imageStyle = {
-    width: '40%',
-    height: '35%',
+    width: '80px',
+    height: '25%',
     marginLeft: '90px',
     // padding: '0 30px'
   };
-
+ const navButton = {
+  marginLeft: '10px',
+  marginRight: '10px',
+  fontSize: '22px',
+  fontWeight: 'bold',
+  color: 'white'
+ }
 
   return (
     <nav className="navbar" position="static">
       <Toolbar>
       <Typography variant="h2" component={Link} to="/" style={{ textDecoration: 'none', color: 'white' }}>
-          <img src="/image.png" alt="Image 1" style={imageStyle} />
+          <img src="/image.png" alt="logo" style={imageStyle} />
         </Typography>
-        <Button color="inherit" component={Link} to="/categories">
+        <Button color="inherit" component={Link} style={navButton} to="/categories">
           Categories
         </Button>
-        <Button color="inherit" component={Link} to="/products">
+        <Button color="inherit" component={Link} style={navButton} to="/products">
           Products
         </Button>
         <form onSubmit={handleSearch} style={{ flexGrow: 1, marginLeft: '60px', alignItems: 'center' }}>
