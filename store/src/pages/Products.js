@@ -18,7 +18,7 @@ const Products = () => {
       })
       .catch((error) => {
         console.error("Error fetching products", error);
-        setError("Error fetching products. Please try again later."); 
+        setError("Error fetching products. Please try again later.");
         setLoading(false); // Update loading state in case of error
       });
   }, []);
@@ -38,20 +38,22 @@ const Products = () => {
             <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
               <div className="item-card">
                 <div className="item-container">
-                  <div className="item__image"></div>
+                  <div className="item__image">
+                    <img src={product.image} alt={product.name} />
+                  </div>
                   <h4 className="item__name">
                     {product.name}
                   </h4>
                   <div className="item__price">
-                  ${product.price}
+                    ${product.price}
+                  </div>
+                  <div className="item__quantity">
+                    {product.stock_quantity} in stock
+                  </div>
+                  <div className="item__details">
+                    <Link to={`/product/${product.id}`}>View Details</Link>
+                  </div>
                 </div>
-                <div className="item__quantity">
-                  {product.stock_quantity} in stock
-                </div>
-                <div className="item__details">
-                <Link to={`/product/${product.id}`}>View Details</Link>
-                </div>
-              </div>
               </div>
             </Grid>
           ))}

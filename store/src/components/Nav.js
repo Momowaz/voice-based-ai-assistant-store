@@ -41,37 +41,55 @@ function Nav(props) {
     props.onSearch(searchKeyword);
   };
 
-
   const imageStyle = {
-    width: '40%',
-    height: '35%',
+    width: '80px',
+    height: '25%',
     marginLeft: '90px',
     // padding: '0 30px'
   };
+ const navButton = {
+  marginLeft: '10px',
+  marginRight: '10px',
+  fontSize: '22px',
+  fontWeight: 'bold',
+  color: 'white'
+ }
+
+ const SearchField = {
+  float: 'right',
+  padding: '6px',
+  border: 'none',
+  marginTop: '8px',
+  marginRight: '16px',
+  fontSize: '17px',
+  height: '40px',
+  width: '500px',
+  borderRadius: '20px',
+ }
 
 
   return (
     <nav className="navbar" position="static">
       <Toolbar>
-        <Typography variant="h2" component={Link} to="/" style={{ textDecoration: 'none', color: 'white' }}>
-          <img src="/image.png" alt="Image 1" style={imageStyle} />
+      <Typography variant="h2" component={Link} to="/" style={{ textDecoration: 'none', color: 'white' }}>
+          <img src="/image.png" alt="logo" style={imageStyle} />
         </Typography>
-        <Button color="inherit" component={Link} to="/categories">
+        <Button color="inherit" component={Link} style={navButton} to="/categories">
           Categories
         </Button>
-        <Button color="inherit" component={Link} to="/products">
+        <Button color="inherit" component={Link} style={navButton} to="/products">
           Products
         </Button>
         <form onSubmit={handleSearch} style={{ flexGrow: 1, marginLeft: '60px', alignItems: 'center' }}>
           <input
             type="text"
-            placeholder="Search for products..."
+            placeholder=" Search for products..."
             value={searchKeyword}
             onChange={(e) => setSearchKeyword(e.target.value)}
 
-            style={{ width: '80%', height: '40px', fontSize: '22px' }}
+            style={SearchField}
           /> </form>
-        <IconButton
+ <IconButton
           color="inherit"
           component={Link}
           to="/speechAI"
