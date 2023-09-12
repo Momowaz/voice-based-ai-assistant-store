@@ -28,9 +28,11 @@ const Categories = () => {
 
                         <div className="category-card">
                             <CardContent>
+                                <div className="category-wrapper">
+                                <div className="category-image"></div>
                                 <div className="category-name">
                                     <p>{category.name}</p>
-                                </div>
+                                </div></div>
                             </CardContent>
                             </div>
 
