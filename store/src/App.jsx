@@ -16,6 +16,7 @@ import CheckoutSuccess from './components/checkoutSuccess';
 import SearchResults from './pages/SearchResults';
 import Footer from './components/Footer';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import { useCustomNavigate } from './hooks/useCustomNavigate';
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
         <Route path="/pages/AdminLogin" element={<AdminLogin />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/logout' element={<Logout />} />
         <Route path='/checkout-success' element={<CheckoutSuccess />} />
         <Route path="/search-results" element={<SearchResults results={results} addToCart={addToCart} />} />
       </Routes>

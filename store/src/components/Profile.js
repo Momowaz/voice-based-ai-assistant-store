@@ -15,7 +15,7 @@ const Profile = () => {
         const userId = res.data[0].id;
         window.sessionStorage.setItem("userId", userId);
       })
-  }, [])
+  }, [user])
 
 
   const handleClick = () => {
