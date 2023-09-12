@@ -107,12 +107,13 @@ const Cart = () => {
   return (
     <Container
     style={{
+        paddingTop: '140px',
         flexDirection: "column",
         alignItems: "center", 
         justifyContent: "center",
         minHeight: "100vh", 
     }}
->
+>s
       <h2>Shopping Cart</h2>
       <Grid container spacing={2}>
         {cartItems.map((item) => (
