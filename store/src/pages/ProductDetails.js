@@ -43,13 +43,6 @@ const ProductDetails = () => {
   }, [product_id]);
 
   const handleAddToCart = () => {
-
-
-    // const userSubId = sessionStorage.getItem('userId');
-    console.log('profile user id from productdetails...', userId);
-    // Send an API request to add the product to the cart with the specified quantity
-    // const userSubId = sessionStorage.getItem('userSubId');
-    
     axios
       .post(`${BACKEND_URL}/api/cart/addCart`, {
         product_id: product.id,

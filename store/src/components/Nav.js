@@ -3,8 +3,8 @@ import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
-import SearchResults from '../pages/SearchResults';
-import { useNavigate } from 'react-router-dom';
+
+// import { useNavigate } from 'react-router-dom';
 import { IconButton } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
@@ -12,50 +12,35 @@ import ChatIcon from "@mui/icons-material/Chat";
 import Icon from "@mui/material/Icon";
 
 
-function NavBar() {
+function Nav(props) {
   const { user, isAuthenticated } = useAuth0();
   const [searchKeyword, setSearchKeyword] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  // const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  function renderLogin(){
+  function renderLogin() {
     if (isAuthenticated) {
-          
+
       return (<Button color="black" component={Link} to="/logout">
-              Logout
-              </Button>)
-      
-      }
+        Logout
+      </Button>)
+
+    }
     else {
       return (<Button color="inherit" component={Link} to="/login">
-         Login
-       </Button>)
-      }
+        Login
+      </Button>)
+    }
 
 
   }
-
   const handleSearch = (e) => {
     e.preventDefault();
-    if (searchKeyword) {
-
-      axios.get(`${BACKEND_URL}/api/products/search/${searchKeyword}`)
-        .then((response) => {
-          const results = response.data;
-
-          console.log('retrun search', results);
-
-          setSearchResults(results);
-          setShowResults(true);
-          navigate('/search-results');
-        })
-        .catch((error) => {
-          console.error('Error searching for products:', error);
-        });
-    }
+    props.onSearch(searchKeyword);
   };
+
 
   const imageStyle = {
     width: '40%',
@@ -68,7 +53,7 @@ function NavBar() {
   return (
     <nav className="navbar" position="static">
       <Toolbar>
-      <Typography variant="h2" component={Link} to="/" style={{ textDecoration: 'none', color: 'white' }}>
+        <Typography variant="h2" component={Link} to="/" style={{ textDecoration: 'none', color: 'white' }}>
           <img src="/image.png" alt="Image 1" style={imageStyle} />
         </Typography>
         <Button color="inherit" component={Link} to="/categories">
@@ -86,7 +71,7 @@ function NavBar() {
 
             style={{ width: '80%', height: '40px', fontSize: '22px' }}
           /> </form>
- <IconButton
+        <IconButton
           color="inherit"
           component={Link}
           to="/speechAI"
@@ -105,4 +90,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default Nav;
