@@ -16,6 +16,24 @@ console.log(process.env.AWS_ACCESS_KEY_ID);
 AWS.config.update(awsConfig);
 const polly = new AWS.Polly();
 
+const startButton = {
+    marginTop: '10px',
+    marginLeft: '5px',
+    marginRight: '10px',
+    height: '40px',
+    borderRadius: '20px',
+    backgroundColor: '#08DA55',
+  }
+
+  const clearButton = {
+    marginTop: '10px',
+    marginLeft: '15px',
+    marginRight: '10px',
+    height: '40px',
+    borderRadius: '20px',
+    backgroundColor: '#FC171F',
+  }
+
 const SpeechAI = () => {
     const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
     const { transcript, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
@@ -130,13 +148,13 @@ const SpeechAI = () => {
 
                 <Button
                     variant="contained"
-                    color="primary"
+                    style={startButton}
                     onClick={isListening ? stopListening : startListening}
                     className={isListening ? 'listening' : ''}
                 >
                     {isListening ? 'Listening...' : 'Start Asking'}
                 </Button>
-                <Button variant="contained" color="secondary" onClick={clearTranscript}>
+                <Button variant="contained" style={clearButton} onClick={clearTranscript}>
                     Clear
                 </Button>
 
