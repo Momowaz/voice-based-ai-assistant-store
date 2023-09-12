@@ -35,7 +35,9 @@ const ProductsByCategory = () => {
           <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
             <div className="item-card">
               <div className="item-container">
-              <div className="item__image"></div>
+              <div className="item__image">
+                    <img src={product.image} alt={product.name} />
+                  </div>
                 <h4 className="item__name">
                   {product.name}
                 </h4>

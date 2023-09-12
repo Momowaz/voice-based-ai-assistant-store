@@ -74,12 +74,14 @@ const ProductDetails = () => {
     borderRadius: '30px',
     backgroundColor: '#9180E5',
   }
-  
+
   return (
     <div style={{ paddingTop: '120px' }}>
       <div style={{ height: '100%' }}>
         <div className='item-details__container'>
-        <div className="item-details__image"></div>
+        <div className="item__image">
+         <img src={product.image} alt={product.name} />
+        </div>
         <div className='item-details__info'>
           <div className='item-details__header'>
             {product.name}
