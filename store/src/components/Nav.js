@@ -10,6 +10,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import ChatIcon from "@mui/icons-material/Chat";
 import Icon from "@mui/material/Icon";
+import { Search } from '@mui/icons-material';
 
 
 function NavBar() {
@@ -71,6 +72,19 @@ function NavBar() {
   color: 'white'
  }
 
+ const SearchField = {
+  float: 'right',
+  padding: '6px',
+  border: 'none',
+  marginTop: '8px',
+  marginRight: '16px',
+  fontSize: '17px',
+  height: '40px',
+  width: '500px',
+  borderRadius: '20px',
+ }
+
+
   return (
     <nav className="navbar" position="static">
       <Toolbar>
@@ -86,11 +100,11 @@ function NavBar() {
         <form onSubmit={handleSearch} style={{ flexGrow: 1, marginLeft: '60px', alignItems: 'center' }}>
           <input
             type="text"
-            placeholder="Search for products..."
+            placeholder=" Search for products..."
             value={searchKeyword}
             onChange={(e) => setSearchKeyword(e.target.value)}
 
-            style={{ width: '80%', height: '40px', fontSize: '22px' }}
+            style={SearchField}
           /> </form>
  <IconButton
           color="inherit"
