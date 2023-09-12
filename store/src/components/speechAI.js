@@ -121,7 +121,7 @@ const SpeechAI = () => {
     return (
         <Container
             style={{
-                paddingTop: '120px',
+                paddingTop: '140px',
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
