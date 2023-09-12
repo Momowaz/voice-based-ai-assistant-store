@@ -79,7 +79,7 @@ const ProductDetails = () => {
     <div style={{ paddingTop: '120px' }}>
       <div style={{ height: '100%' }}>
         <div className='item-details__container'>
-        <div className="item__image">
+        <div className="item-details__image">
          <img src={product.image} alt={product.name} />
         </div>
         <div className='item-details__info'>
