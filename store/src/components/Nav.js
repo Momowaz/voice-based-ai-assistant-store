@@ -23,7 +23,7 @@ function Nav(props) {
   function renderLogin() {
     if (isAuthenticated) {
 
-      return (<Button color="black" component={Link} to="/logout">
+      return (<Button color="inherit" component={Link} to="/logout">
         Logout
       </Button>)
 
