@@ -100,9 +100,27 @@ const SpeechAI = () => {
         }
     };
 
+    const startButton = {
+        marginTop: '10px',
+        marginLeft: '5px',
+        marginRight: '10px',
+        height: '40px',
+        borderRadius: '20px',
+        backgroundColor: '#08DA55',
+      }
+      const clearButton = {
+        marginTop: '10px',
+        marginLeft: '15px',
+        marginRight: '10px',
+        height: '40px',
+        borderRadius: '20px',
+        backgroundColor: '#FC171F',
+      }
+
     return (
         <Container
             style={{
+                paddingTop: '150px',
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
@@ -130,13 +148,13 @@ const SpeechAI = () => {
 
                 <Button
                     variant="contained"
-                    color="primary"
+                    style={startButton}
                     onClick={isListening ? stopListening : startListening}
                     className={isListening ? 'listening' : ''}
                 >
                     {isListening ? 'Listening...' : 'Start Asking'}
                 </Button>
-                <Button variant="contained" color="secondary" onClick={clearTranscript}>
+                <Button variant="contained" style={clearButton} onClick={clearTranscript}>
                     Clear
                 </Button>
 
