@@ -123,7 +123,8 @@ const Cart = () => {
     }}
 >s
 <div className='shopping-cart-container'>
-      <h2>Shopping Cart</h2>
+<h6 className="category-container__header">Your Shopping Cart</h6>
+<h5 className="category-container__header">🛒</h5>
       <Grid container spacing={2}>
         {cartItems.map((item) => (
           <Grid item xs={12} key={item.id}>
