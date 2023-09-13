@@ -17,7 +17,6 @@ router.use(
 // Get the current shopping cart items
 router.get("/:customerId", async (req, res) => {
   const customerId = req.params.customerId;
-  console.log('c Id.', customerId)
 
   try {
     // Query the cart_items table to get the cart items for the customer
@@ -70,7 +69,6 @@ router.post("/addItem", async (req, res) => {
     const cartResult = await pool.query(cartQuery, [customerId]);
     let cartId = null;
 
-    console.log("cart id..", cartId)
     if (cartResult.rows.length === 0) {
       // If a cart doesn't exist, create one for the customer
       const createCartQuery = 'INSERT INTO cart (customer_id) VALUES ($1) RETURNING id';

@@ -29,7 +29,6 @@ router.get('/allProducts', async (req, res) => {
 
 // Create a new product
 router.post('/newProduct', async (req, res) => {
-  console.log("new product api", req.body)
   try {
     const { name, price, stock_quantity, description, category_id } = req.body;
     const query = 'INSERT INTO products (name, price, stock_quantity, description, category_id) VALUES ($1, $2, $3, $4, $5) RETURNING *';

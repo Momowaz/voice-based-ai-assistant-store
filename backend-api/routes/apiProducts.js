@@ -16,11 +16,10 @@ router.get('/', async (req, res) => {
   // List of all products under selected category
   router.get('/category/:category_id', async (req, res) => {
     const category_id = req.params.category_id;
-    // console.log('did we get the id..', category_id);
+    
     try {
       const query = `SELECT * FROM products WHERE category_id = $1`;
       const { rows } = await pool.query(query, [category_id]);
-      // console.log('sss...', res.json(rows))
       res.json(rows);
     } catch (error) {
       console.error('Error fetching products:', error);

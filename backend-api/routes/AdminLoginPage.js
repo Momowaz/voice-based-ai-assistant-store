@@ -14,8 +14,6 @@ router.use(
 
 
 router.post("/authorization", async (req, res) => {
-  console.log('whats here..', req.body)
-
   const  { email } = req.body; 
   try {
     const { rows } = await pool.query('SELECT * FROM admin WHERE email = $1', [email]);
