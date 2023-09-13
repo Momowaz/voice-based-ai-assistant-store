@@ -3,10 +3,6 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 import {
-  Card,
-  CardContent,
-  Typography,
-  Grid,
   Button,
   TextField,
   Snackbar,
@@ -15,23 +11,32 @@ import {
 
 const ProductDetails = () => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-  const { product_id } = useParams(); // Get the product_id from the URL
+  const { product_id } = useParams();
   const [product, setProduct] = useState(null);
   const [userId, setUserId] = useState(null);
-  const [quantity, setQuantity] = useState(1); // Default quantity is 1
+  const [quantity, setQuantity] = useState(1);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [message, setMessage] = useState('');
-  const { user } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
 
   useEffect(() => {
-    axios.post("http://localhost:3001/customer/find", user);
-    console.log('usersss', user)
-    const userSubId1 = user.sub;
-    const parts = userSubId1.split("|");
-    const lastFourDigits = parts[1].slice(-4);
-    setUserId(lastFourDigits);
-    
-
+    if (isAuthenticated) {
+      // If authenticated, make a POST request to get user info
+      axios.post("http://localhost:3001/customer/find", user)
+        .then((response) => {
+          const userSubId = response.data.sub;
+          setUserId(userSubId);
+        })
+        .catch((error) => {
+          console.error('Error fetching user info', error);
+          setUserId(null); 
+        });
+    } else {
+      // If not authenticated, set the user ID to null
+      setUserId(null);
+    }
+  
+    // Fetch product details based on product_id
     axios
       .get(`${BACKEND_URL}/api/products/${product_id}`)
       .then((response) => {
@@ -40,9 +45,19 @@ const ProductDetails = () => {
       .catch((error) => {
         console.error('Error fetching product details', error);
       });
-  }, [product_id]);
+  }, [isAuthenticated, product_id, user]);
+  
 
   const handleAddToCart = () => {
+    // Check if the user is authenticated
+    if (!isAuthenticated) {
+      // If not authenticated, display a message asking the user to log in
+      setMessage('Please log in to add items to your cart.');
+      setSnackbarOpen(true);
+      return;
+    }
+  
+    // If authenticated, proceed with adding the item to the cart
     axios
       .post(`${BACKEND_URL}/api/cart/addCart`, {
         product_id: product.id,
@@ -58,10 +73,11 @@ const ProductDetails = () => {
         console.error('Error adding item to cart', error);
       });
   };
-
+  
   const handleSnackbarClose = () => {
     setSnackbarOpen(false);
   };
+  
 
   if (!product) {
     return <div>Loading...</div>;
