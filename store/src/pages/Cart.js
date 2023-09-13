@@ -121,7 +121,7 @@ const Cart = () => {
         justifyContent: "center",
         minHeight: "100vh", 
     }}
->s
+>
 <div className='shopping-cart-container'>
       <h2>Shopping Cart</h2>
       <Grid container spacing={2}>
