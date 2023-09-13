@@ -120,7 +120,7 @@ const SpeechAI = () => {
     return (
         <Container
             style={{
-                paddingTop: '150px',
+                paddingTop: '190px',
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
@@ -134,10 +134,10 @@ const SpeechAI = () => {
             }}
         >
             <div className='container'>
-                <h2>How can I help you?</h2>
+            <h5 className="category-container__header">Ask our AI for assistance!</h5>
                 <br />
                 <div className='main-content'>
-                    <strong>Your Question:</strong>
+                    <strong>Your Query:</strong>
                     <p>{transcript}</p>
                 </div>
                 <div className='main-content'>

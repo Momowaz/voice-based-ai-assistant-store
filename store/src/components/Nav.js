@@ -1,24 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+// import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
-import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import { Toolbar, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
-
-// import { useNavigate } from 'react-router-dom';
 import { IconButton } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import PersonIcon from '@mui/icons-material/Person';
+// import PersonIcon from '@mui/icons-material/Person';
 import ChatIcon from "@mui/icons-material/Chat";
-import Icon from "@mui/material/Icon";
+// import Icon from "@mui/material/Icon";
 
 
 function Nav(props) {
-  const { user, isAuthenticated } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   const [searchKeyword, setSearchKeyword] = useState('');
-  // const [searchResults, setSearchResults] = useState([]);
-  const [showResults, setShowResults] = useState(false);
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-  // const navigate = useNavigate();
+  // const [showResults, setShowResults] = useState(false);
+  // const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  const { loginWithRedirect } = useAuth0();
 
   function renderLogin() {
     if (isAuthenticated) {
@@ -29,9 +26,14 @@ function Nav(props) {
 
     }
     else {
-      return (<Button color="inherit" component={Link} to="/login">
-        Login
-      </Button>)
+      return (
+        <Button
+          color="inherit"
+          onClick={() => loginWithRedirect()}
+        >
+          Log In
+        </Button>
+      )
     }
 
 
@@ -47,31 +49,31 @@ function Nav(props) {
     marginLeft: '90px',
     // padding: '0 30px'
   };
- const navButton = {
-  marginLeft: '10px',
-  marginRight: '10px',
-  fontSize: '22px',
-  fontWeight: 'bold',
-  color: 'white'
- }
+  const navButton = {
+    marginLeft: '10px',
+    marginRight: '10px',
+    fontSize: '22px',
+    fontWeight: 'bold',
+    color: 'white'
+  }
 
- const SearchField = {
-  float: 'right',
-  padding: '6px',
-  border: 'none',
-  marginTop: '8px',
-  marginRight: '16px',
-  fontSize: '17px',
-  height: '40px',
-  width: '500px',
-  borderRadius: '20px',
- }
+  const SearchField = {
+    float: 'right',
+    padding: '6px',
+    border: 'none',
+    marginTop: '8px',
+    marginRight: '16px',
+    fontSize: '17px',
+    height: '40px',
+    width: '500px',
+    borderRadius: '20px',
+  }
 
 
   return (
     <nav className="navbar" position="static">
       <Toolbar>
-      <Typography variant="h2" component={Link} to="/" style={{ textDecoration: 'none', color: 'white' }}>
+        <Typography variant="h2" component={Link} to="/" style={{ textDecoration: 'none', color: 'white' }}>
           <img src="/image.png" alt="logo" style={imageStyle} />
         </Typography>
         <Button color="inherit" component={Link} style={navButton} to="/categories">
@@ -80,6 +82,13 @@ function Nav(props) {
         <Button color="inherit" component={Link} style={navButton} to="/products">
           Products
         </Button>
+        <IconButton
+          color="inherit"
+          component={Link}
+          to="/speechAI"
+        >
+          <ChatIcon />
+        </IconButton>
         <form onSubmit={handleSearch} style={{ flexGrow: 1, marginLeft: '60px', alignItems: 'center' }}>
           <input
             type="text"
@@ -89,13 +98,6 @@ function Nav(props) {
 
             style={SearchField}
           /> </form>
- <IconButton
-          color="inherit"
-          component={Link}
-          to="/speechAI"
-        >
-          <ChatIcon />
-        </IconButton>
         <Box ml="auto">
           {renderLogin()}
           <IconButton color="inherit" fontSize="large" aria-label="Cart" component={Link} to="/cart">
