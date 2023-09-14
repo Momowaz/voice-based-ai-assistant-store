@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# AI-Powered Online Shop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##Introduction
 
-## Available Scripts
+Discover a new level of convenience with our AI-Powered Online Store. With Voice Assistance for Search, you're no longer limited to typing your shopping queries. Simply talk to our AI, and it will assist you in finding the products you desire. It's like having your own personal shopping assistant, available 24/7.
 
-In the project directory, you can run:
+##Features
 
-### `npm start`
+###Stripe for Secure Payments
+We've integrated Stripe, a trusted and secure payment processing platform, to ensure that your transactions are safe and hassle-free. Pay for your orders with confidence, knowing that your payment information is protected.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+###Auth0 for Seamless Login
+Our online store utilizes Auth0, a robust authentication and authorization platform, to provide you with a seamless and secure login experience. Your personal information remains confidential, and you can access your account with ease.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+###Voice Assistance for Effortless Search
+Say goodbye to typing long search queries! Our Voice Assistance for Search feature allows you to browse and find products effortlessly using your voice. Whether you're on a mobile device or desktop, simply speak your preferences, and our AI-powered assistant will help you discover products quickly and intuitively.
 
-### `npm test`
+##Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##Dependencies
 
-### `npm run build`
+Before setting up the AI-powered online store, you need the following:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- PostgreSQL (v10.0 or higher)
+- Node.js (v14.0.0 or higher)
+- npm (v6.0.0 or higher)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the Repository:
+Start by cloning the project repository to your local machine using the following command:
 
-### `npm run eject`
+  ```
+git clone https://github.com/Momowaz/voice-based-ai-assistant-store
+  ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Access Project Directories:
+Inside the project directory, you'll notice two primary folders: backend-api and store. We'll set up the backend and frontend separately.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Setting Up the Backend:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+For the backend:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Go to the 'backend-api` directory:
 
-## Learn More
+  ``` 
+  cd backend-api
+  ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Create a .env configuration file based on the provided .env.example. Customize the settings as necessary.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Install the required dependencies:
 
-### Code Splitting
+  ```
+  npm install
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Launch the backend server:
 
-### Analyzing the Bundle Size
+  ```
+  npm start
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. Setting Up the Frontend:
 
-### Making a Progressive Web App
+For the frontend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Open a new terminal or command prompt.
+- Navigate to the store directory:
 
-### Advanced Configuration
+  ```
+  cd store
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Install the necessary dependencies:
 
-### Deployment
+- Install the dependencies by running the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  ```
+  npm install
+  ```
 
-### `npm run build` fails to minify
+- Once the dependencies are installed, start the backend server:
+  ```
+  npm start
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+5. Now, let's set up the React frontend: 
+
+- Open a new terminal or command prompt window.
+
+- Navigate to the `react-frontend` directory:
+
+  ```
+  cd ../react-frontend
+  ```
+
+- Install the dependencies by running the following command:
+
+  ```
+  npm install
+  ```
+
+- Start the frontend server:
+
+  ```
+  npm start
+  ```
+
+5.Accessing the Application:
+Once you've completed these steps, the backend and frontend servers will be running on separate ports. You can explore the application by opening your web browser and visiting http://localhost:3000 (or a different port if specified).
