@@ -4,15 +4,11 @@ const pool = require('../Pool');
 
 router.get("/search/:keyword", async (req, res) => {
     const keyword = req.params.keyword;
-    console.log('keyowrd..', keyword)
   
     try {
       const searchQuery = 'SELECT * FROM products WHERE name ILIKE $1';
-    //   const searchTerm = `%${keyword}%`
-    //   console.log('searchTerm', searchTerm);
       const { rows } = await pool.query(searchQuery, [`%${keyword}%`]);
   
-      console.log('rows', rows);
       res.json(rows);
     } catch (error) {
       console.error('Error searching for products:', error);

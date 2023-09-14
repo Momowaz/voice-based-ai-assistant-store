@@ -1,13 +1,16 @@
 require("dotenv").config();
 const express = require("express");
-const OpenAI = require('openai');
 const cors = require('cors');
 const { Pool } = require('pg');
 const database = require("./db/database")
 const session = require('express-session');
 const pool = require('./Pool');
 const app = express();
-app.use(express.json());
+app.use(express.json({
+  verify: function(req, res, buf) {
+    req.rawBody = buf.toString();
+  }
+}));
 const port = process.env.PORT || 3001;
 
 const corsOptions = {
@@ -16,9 +19,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
 
 
 const apiProducts = require("./routes/apiProducts");
@@ -27,6 +27,7 @@ const adminDashboard = require("./routes/adminDashboard");
 const AdminLoginPage = require("./routes/AdminLoginPage");
 const searchProduct = require("./routes/searchProduct");
 const stripeRouter = require('./routes/stripe');
+const askOpenAI = require('./routes/askAI');
 
 app.use("/api/products", apiProducts);
 app.use("/api/cart", apiCart);
@@ -34,6 +35,7 @@ app.use("/api/AdminLoginPage", AdminLoginPage);
 app.use("/api/adminDashboard", adminDashboard)
 app.use("/api/products", searchProduct);
 app.use('/api/stripe', stripeRouter);
+app.use('/api', askOpenAI);
 
 app.use(
   session({
@@ -56,46 +58,6 @@ app.get('/api/categories', async (req, res) => {
   }
 });
 
-
-
-
-app.post("/askOpenAI", async (req, res) => {
-  const { question } = req.body;
-
-  console.log('q...', question)
-  try {
-    if (question == null) {
-      throw new Error("Uh oh, no prompt was provided");
-    }
-    const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages: [
-        {
-          role: "system",
-          content: "You are a helpful assistant."
-        },
-        {
-          role: "user",
-          content: question
-        }
-      ],
-      max_tokens: 20,
-      temperature: 0.7
-    });
-
-    const answer = response.choices[0].message.content;
-
-
-
-    // Send the answer as a JSON response
-    res.json({ answer });
-
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error processing the request' });
-  }
-
-});
 //Check if customer is already in DB, if not, add the costumer
 
 app.post("/customer/find", (req, res) => {
