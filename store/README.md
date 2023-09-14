@@ -1,12 +1,14 @@
 # AI-Powered Online Shop
 
+
 ## Introduction
 
 Discover a new level of convenience with our AI-Powered Online Store. With Voice Assistance for Search, you're no longer limited to typing your shopping queries. Simply talk to our AI, and it will assist you in finding the products you desire. It's like having your own personal shopping assistant, available 24/7.
 
+
 ## Features
 
-###Stripe for Secure Payments
+### Stripe for Secure Payments
 We've integrated Stripe, a trusted and secure payment processing platform, to ensure that your transactions are safe and hassle-free. Pay for your orders with confidence, knowing that your payment information is protected.
 
 ### Auth0 for Seamless Login
@@ -16,6 +18,7 @@ Our online store utilizes Auth0, a robust authentication and authorization platf
 Say goodbye to typing long search queries! Our Voice Assistance for Search feature allows you to browse and find products effortlessly using your voice. Whether you're on a mobile device or desktop, simply speak your preferences, and our AI-powered assistant will help you discover products quickly and intuitively.
 
 ## Getting Started
+
 
 ## Dependencies
 
@@ -27,17 +30,18 @@ Before setting up the AI-powered online store, you need the following:
 
 ## Installation
 
-1. Clone the Repository:
+### 1. Clone the Repository:
 Start by cloning the project repository to your local machine using the following command:
 
-  ```
-git clone https://github.com/Momowaz/voice-based-ai-assistant-store
-  ```
 
-2. Access Project Directories:
+    ```
+  git clone https://github.com/Momowaz/voice-based-ai-assistant-store
+    ```
+
+### 2. Access Project Directories:
 Inside the project directory, you'll notice two primary folders: backend-api and store. We'll set up the backend and frontend separately.
 
-3. Setting Up the Backend:
+### 3. Setting Up the Backend:
 
 For the backend:
 
@@ -61,7 +65,7 @@ Create a .env configuration file based on the provided .env.example. Customize t
   npm start
   ```
 
-4. Setting Up the Frontend:
+### 4. Setting Up the Frontend:
 
 For the frontend:
 
@@ -85,27 +89,6 @@ For the frontend:
   npm start
   ```
 
-5. Now, let's set up the React frontend: 
 
-- Open a new terminal or command prompt window.
-
-- Navigate to the `react-frontend` directory:
-
-  ```
-  cd ../react-frontend
-  ```
-
-- Install the dependencies by running the following command:
-
-  ```
-  npm install
-  ```
-
-- Start the frontend server:
-
-  ```
-  npm start
-  ```
-
-6. Accessing the Application:
+### 5. Accessing the Application:
 Once you've completed these steps, the backend and frontend servers will be running on separate ports. You can explore the application by opening your web browser and visiting http://localhost:3000 (or a different port if specified).
