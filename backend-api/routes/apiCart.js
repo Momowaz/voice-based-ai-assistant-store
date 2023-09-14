@@ -60,7 +60,7 @@ router.delete('/:itemId', async (req, res) => {
   }
 });
 
-router.post("/addItem", async (req, res) => {
+router.post("/addCart", async (req, res) => {
   const { customerId, productId, quantity } = req.body;
 
   try {

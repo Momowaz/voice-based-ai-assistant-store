@@ -41,10 +41,10 @@ router.get('/', async (req, res) => {
       }
   
       const product = result.rows[0];
-      res.json(product);
+      return res.json(product);
     } catch (error) {
       console.error('Error fetching product details:', error);
-      res.status(500).json({ message: 'Internal server error' });
+      return res.status(500).json({ message: 'Internal server error' });
     }
   });
 

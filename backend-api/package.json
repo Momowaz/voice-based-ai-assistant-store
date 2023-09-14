@@ -19,7 +19,7 @@
     "express-session": "^1.17.3",
     "openai": "^4.3.0",
     "pg": "^8.11.3",
-    "stripe": "^13.4.0"
+    "stripe": "^13.5.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

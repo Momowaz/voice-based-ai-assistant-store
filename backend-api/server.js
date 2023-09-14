@@ -69,9 +69,6 @@ app.post("/customer/find", (req, res) => {
     }
       return res.send(result)
   })
-  // .then(() => {
-  //   res.status(201).send("OK")  
-  // })
 })
 app.get("/customer/findId", async (req, res) => {
   const userEmail = req.query.email; 
