@@ -72,6 +72,10 @@ body {
   z-index: 100;
 }
 
+.main {
+  flex: 1;
+  min-height: 1100px;
+}
 .navbar div {
   margin: 0 20px;
   padding-right: 10px;
@@ -144,6 +148,7 @@ p {
   min-height: 200px;
   height: auto;
   margin: 10px;
+  margin-top: 20px;
   padding: 18px 18px 120px 18px;
   position: relative;
   resize: none;
@@ -317,7 +322,7 @@ margin-top: 15px;
 
 .item-details__image {
   margin-left: 70px;
-  width: 100%;
+  width: 80%;
   height:  100%;
   border-radius: 10px;
 }
@@ -326,12 +331,13 @@ margin-top: 15px;
   padding: 20px;
   float: left;
   height: 100%;
-  max-width: 500px;
+  max-width: 700px;
   border-radius: 0 7px 10px 7px;
 }
 
 .item-details__header {
   font-size: 60px;
+  font-weight: 500;
   margin: 0;
   color:#9180e5;
 }
@@ -393,4 +399,25 @@ margin-top: 15px;
 
 .cart-total-container {
   padding-bottom: 100px;
+}
+
+.search-results-container {
+  padding-top: 150px;
+}
+.search-results {
+  display: flex;
+  gap: 30px;
+}
+
+.ai-page__container {
+  padding-top: 160px;
+}
+
+.main-content__query {
+  height: 90px;
+}
+
+.main-content__list {
+display: flex;
+justify-content: space-evenly;
 }

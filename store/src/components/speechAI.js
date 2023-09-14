@@ -172,7 +172,7 @@ const SpeechAI = () => {
                 textAlign: "center",
             }}
         >
-            <div className='container'>
+            <div className='container ai-page__container'>
                 <h5 className="category-container__header">Ask our AI for assistance!</h5>
                 <br />
                 <Button
@@ -186,19 +186,16 @@ const SpeechAI = () => {
                 <Button variant="contained" style={clearButton} onClick={clearTranscript}>
                     Clear
                 </Button>
-                <div className='main-content'>
+                <div className='main-content main-content__query'>
                     <strong>Your Query:</strong>
                     <p>{transcript}</p>
-                </div>
-                <div className='main-content'>
-                    <strong>AI Response:</strong>
-                    <p>{openAIResponse}</p>
                 </div>
 
                 {similarProducts.length > 0 && (
                     <div className='main-content'>
                         <strong>Similar Products:</strong>
-                        <Grid container spacing={2}></Grid>
+                        <div className='main-content__list'>
+                        {/* <Grid container spacing={2}></Grid> */}
                             {similarProducts.map((product) => (
                                  <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
                                  <div className="item-card">
@@ -221,7 +218,7 @@ const SpeechAI = () => {
                                    </div>
                                  </div>
                                </Grid>
-                            ))}
+                            ))}                                </div>
                         <Grid container spacing={2}></Grid>
                     </div>
                 )}

@@ -11,9 +11,10 @@ const SearchResults = ({ results, addToCart }) => {
         }
 
   return (
-    <div>
+    <div className='search-results-container'>
       <h2>Search Results</h2>
       
+      <div className='search-results'>
       {results.map((product) => (
             <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
             <div className="item-card">
@@ -36,7 +37,7 @@ const SearchResults = ({ results, addToCart }) => {
               </div>
             </div>
           </Grid>
-      ))}
+      ))}</div>
     </div>
   );
 };

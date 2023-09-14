@@ -20,7 +20,7 @@ const Categories = () => {
     }, []);
 
     return (
-        <div style={{ padding: '100px' }}> 
+        <div style={{ padding: '100px' }} className="main"> 
             <Grid container spacing={4} style={{ justifyContent: 'space-around' }}>
                 {categories.map(category => (
                     <Grid item key={category.id} xs={12} sm={6} md={4} lg={3}>
