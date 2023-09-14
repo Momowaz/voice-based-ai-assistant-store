@@ -26,13 +26,13 @@ INSERT INTO addresses (customer_id, street, city, province, postal_code, country
 
 
 -- Insert data into categories table
-INSERT INTO categories (name) VALUES ('Electronics');
-INSERT INTO categories (name) VALUES ('Books');
-INSERT INTO categories (name) VALUES ('Clothing');
-INSERT INTO categories (name) VALUES ('Toys');
-INSERT INTO categories (name) VALUES ('Home Decor');
-INSERT INTO categories (name) VALUES ('Jewelry');
-INSERT INTO categories (name) VALUES ('Beauty');
+INSERT INTO categories (name, image) VALUES ('Electronics', 'image1');
+INSERT INTO categories (name, image) VALUES ('Books', 'image2');
+INSERT INTO categories (name, image) VALUES ('Clothing', 'image3');
+INSERT INTO categories (name, image) VALUES ('Toys', 'image4');
+INSERT INTO categories (name, image) VALUES ('Home Decor', 'image5');
+INSERT INTO categories (name, image) VALUES ('Jewelry', 'image6');
+INSERT INTO categories (name, image) VALUES ('Beauty', 'image7');
 
 -- Insert data into products table
 INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (1, 'GrapePhone X12', 'image1', 1000.00, 50, 'Introducing the all-new GrapePhone X12, a marvel of technology that is designed to enhance every moment of your day. Built with aerospace-grade aluminum and fronted by a stunning 6.7-inch Retina OLED display, the X12 offers a user experience that is second to none. ');
