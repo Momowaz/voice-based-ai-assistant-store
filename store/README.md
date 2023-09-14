@@ -33,10 +33,9 @@ Before setting up the AI-powered online store, you need the following:
 ### 1. Clone the Repository:
 Start by cloning the project repository to your local machine using the following command:
 
-
-    ```
-  git clone https://github.com/Momowaz/voice-based-ai-assistant-store
-    ```
+```
+git clone https://github.com/Momowaz/voice-based-ai-assistant-store
+```
 
 ### 2. Access Project Directories:
 Inside the project directory, you'll notice two primary folders: backend-api and store. We'll set up the backend and frontend separately.
