@@ -20,18 +20,22 @@ const Categories = () => {
     }, []);
 
     return (
-        <div style={{ padding: '100px' }}> 
+        <div style={{ padding: '100px' }}>
             <Grid container spacing={4} style={{ justifyContent: 'space-around' }}>
                 {categories.map(category => (
                     <Grid item key={category.id} xs={12} sm={6} md={4} lg={3}>
-                        <Link to={`/products/${category.id}`} component={ProductsByCategory} style={{ textDecoration: 'none'}}>
+                        <Link to={`/products/${category.id}`} component={ProductsByCategory} style={{ textDecoration: 'none' }}>
 
-                        <div className="category-card">
-                            <CardContent>
-                                <div className="category-name">
-                                    <p>{category.name}</p>
-                                </div>
-                            </CardContent>
+
+                            <div className="category-card">
+                                <CardContent>
+                                    <div className="item__image">
+                                        <img src={category.image} alt={category.name} />
+                                    </div>
+                                    <div className="category-name">
+                                        <p>{category.name}</p>
+                                    </div>
+                                </CardContent>
                             </div>
 
                         </Link>

@@ -31,7 +31,6 @@ const SpeechAI = () => {
                     query: query,
                 }
             );
-            console.log('ai response...',response.data);
             setSimilarProducts(response.data);
         } catch (error) {
             console.error('Error fetching similar products:', error);

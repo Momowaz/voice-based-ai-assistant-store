@@ -15,7 +15,6 @@ import {
 import PayButton from '../components/payButton';
 
 const Cart = () => {
-  console.log('cart testing...');
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [cartItems, setCartItems] = useState([]);
   const [totalItems, setTotalItems] = useState(0);

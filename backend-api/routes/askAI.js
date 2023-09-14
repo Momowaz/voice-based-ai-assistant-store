@@ -23,12 +23,9 @@ let similarProducts = [];
 
 router.post("/products/similar", async (req, res) => {
   const { query } = req.body;
-
-  console.log('ai query', query);
   try {
     // Implement your logic to find similar products based on the query
     similarProducts = await findSimilarProducts(query);
-    console.log('similarProducts..', similarProducts)
     res.json(similarProducts);
   } catch (error) {
     console.error('Error fetching similar products:', error);
@@ -38,8 +35,6 @@ router.post("/products/similar", async (req, res) => {
 
 // Define a function to find similar products
 const findSimilarProducts = async (query) => {
-
-  console.log('find similar..', query)
   // Your SQL query to find similar products based on the query
   const searchQuery = 'SELECT * FROM products WHERE description ILIKE $1 LIMIT 5';
 

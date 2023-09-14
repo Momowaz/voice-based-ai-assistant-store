@@ -26,24 +26,24 @@ INSERT INTO addresses (customer_id, street, city, province, postal_code, country
 
 
 -- Insert data into categories table
-INSERT INTO categories (name, image) VALUES ('Electronics', 'image1');
-INSERT INTO categories (name, image) VALUES ('Books', 'image2');
-INSERT INTO categories (name, image) VALUES ('Clothing', 'image3');
-INSERT INTO categories (name, image) VALUES ('Toys', 'image4');
-INSERT INTO categories (name, image) VALUES ('Home Decor', 'image5');
-INSERT INTO categories (name, image) VALUES ('Jewelry', 'image6');
-INSERT INTO categories (name, image) VALUES ('Beauty', 'image7');
+INSERT INTO categories (name, image) VALUES ('Electronics', 'https://i.postimg.cc/65cNrpgy/Electronics.png');
+INSERT INTO categories (name, image) VALUES ('Books', 'https://i.postimg.cc/VvBPHfNZ/Books.png');
+INSERT INTO categories (name, image) VALUES ('Clothing', 'https://i.postimg.cc/prttZhPn/Clothing.png');
+INSERT INTO categories (name, image) VALUES ('Toys', 'https://i.postimg.cc/2SXRtXzY/Toys.png');
+INSERT INTO categories (name, image) VALUES ('Home Decor', 'https://i.postimg.cc/9FChw7x6/Home-Decor.png');
+INSERT INTO categories (name, image) VALUES ('Jewelry', 'https://i.postimg.cc/L4zSsTVk/Jewelry.png');
+INSERT INTO categories (name, image) VALUES ('Beauty', 'https://i.postimg.cc/zf6Ny2M7/Beauty.png');
 
 -- Insert data into products table
-INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (1, 'GrapePhone X12', 'image1', 1000.00, 50, 'Introducing the all-new GrapePhone X12, a marvel of technology that is designed to enhance every moment of your day. Built with aerospace-grade aluminum and fronted by a stunning 6.7-inch Retina OLED display, the X12 offers a user experience that is second to none. ');
-INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (2, 'How to Disappear Completely and Never Be Found', 'image2', 30.00, 100, 'This supposed handbook for those who really have something to hide features sections dedicated to procuring new identification papers, finding a job, “pseudocide,” and more, but it’s hard to take advice from an author who misspells “disappear” not once, but seven times.');
-INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (3, 'The Cloak of Invisibility', 'image3', 10000.00, 200, 'This Invisibility Cloak was the only known one that would not fade with age and would provide everlasting protection to the wearer, something no normal Invisibility Cloak could provide.');
-INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (4, 'Luxury Perfume', 'image4', 150.00, 20, 'Indulge in the exquisite scent of this luxury perfume, designed to make you feel like royalty.');
-INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (3, 'Diamond Pendant Necklace', 'image5', 5000.00, 10, 'Adorn yourself with the timeless elegance of this diamond pendant necklace.');
-INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (2, 'Handcrafted Ceramic Vase', 'image6', 75.00, 30, 'Add a touch of artistry to your home with this beautifully handcrafted ceramic vase.');
-INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (1, 'Remote Control Car', 'image7', 50.00, 15, 'Have endless fun with this high-speed remote control car, perfect for all ages.');
-INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (4, 'Luxury Skincare Set', 'image8', 200.00, 25, 'Experience the ultimate in skincare luxury with this comprehensive skincare set.');
-INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (3, 'Sapphire and Diamond Ring', 'image9', 7500.00, 5, 'Make a statement with this stunning sapphire and diamond ring, a true masterpiece.');
+INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (1, 'GrapePhone X12', 'https://i.postimg.cc/brNStDKw/image1.jpg', 1000.00, 50, 'Introducing the all-new GrapePhone X12, a marvel of technology that is designed to enhance every moment of your day. Built with aerospace-grade aluminum and fronted by a stunning 6.7-inch Retina OLED display, the X12 offers a user experience that is second to none. ');
+INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (2, 'How to Disappear Completely and Never Be Found', 'https://i.postimg.cc/Jhx1B6mj/image2.jpg', 30.00, 100, 'This supposed handbook for those who really have something to hide features sections dedicated to procuring new identification papers, finding a job, “pseudocide,” and more, but it’s hard to take advice from an author who misspells “disappear” not once, but seven times.');
+INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (3, 'The Cloak of Invisibility', 'https://i.postimg.cc/Zq4bntkT/image3.jpg', 10000.00, 200, 'This Invisibility Cloak was the only known one that would not fade with age and would provide everlasting protection to the wearer, something no normal Invisibility Cloak could provide.');
+INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (4, 'Luxury Perfume', 'https://i.postimg.cc/g29k9LNL/image4.jpg', 150.00, 20, 'Indulge in the exquisite scent of this luxury perfume, designed to make you feel like royalty.');
+INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (3, 'Diamond Pendant Necklace', 'https://i.postimg.cc/QtnhfFFt/image5.jpg', 5000.00, 10, 'Adorn yourself with the timeless elegance of this diamond pendant necklace.');
+INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (2, 'Handcrafted Ceramic Vase', 'https://i.postimg.cc/59R23Rz3/image6.jpg', 75.00, 30, 'Add a touch of artistry to your home with this beautifully handcrafted ceramic vase.');
+INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (1, 'Remote Control Car', 'https://i.postimg.cc/prpXvDwz/image7.jpg', 50.00, 15, 'Have endless fun with this high-speed remote control car, perfect for all ages.');
+INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (4, 'Luxury Skincare Set', 'https://i.postimg.cc/bJvq0xNW/image8.jpg', 200.00, 25, 'Experience the ultimate in skincare luxury with this comprehensive skincare set.');
+INSERT INTO products (category_id, name, image, price, stock_quantity, description) VALUES (3, 'Sapphire and Diamond Ring', 'https://i.postimg.cc/vHnbvHbY/image9.jpg', 7500.00, 5, 'Make a statement with this stunning sapphire and diamond ring, a true masterpiece.');
 
 -- Insert data into cart table
 INSERT INTO cart (customer_id) VALUES (1);
