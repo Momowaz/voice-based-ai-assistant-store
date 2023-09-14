@@ -57,7 +57,7 @@ router.post("/askOpenAI", async (req, res) => {
     let answer = '';
 
     if (similarProducts.length > 0) {
-      answer = 'Please see below the matched item your are looking for...';
+      answer = 'We have special item for you to give as a gift...';
     } else {
       const response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
@@ -71,7 +71,7 @@ router.post("/askOpenAI", async (req, res) => {
             content: question
           }
         ],
-        max_tokens: 20,
+        max_tokens: 40,
         temperature: 0.7
       });
 

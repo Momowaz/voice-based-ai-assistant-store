@@ -6,7 +6,7 @@ import axios from "axios";
 const Products = () => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true); // State to track loading state
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Products = () => {
       .get(`${BACKEND_URL}/api/products`)
       .then((response) => {
         setProducts(response.data);
-        setLoading(false); // Update loading state when data is fetched
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching products", error);

@@ -120,7 +120,7 @@ const Cart = () => {
         justifyContent: "center",
         minHeight: "100vh", 
     }}
->s
+>
 <div className='shopping-cart-container'>
 <h6 className="category-container__header">Your Shopping Cart</h6>
 <h5 className="category-container__header">🛒</h5>
