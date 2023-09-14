@@ -7,7 +7,11 @@ const database = require("./db/database")
 const session = require('express-session');
 const pool = require('./Pool');
 const app = express();
-app.use(express.json());
+app.use(express.json({
+  verify: function(req, res, buf) {
+    req.rawBody = buf.toString();
+  }
+}));
 const port = process.env.PORT || 3001;
 
 const corsOptions = {

@@ -128,3 +128,9 @@ INSERT INTO admin (first_name, last_name, email, sub_id) VALUES ('Admin', 'Three
 INSERT INTO voice_queries (customer_id, query_text, response_text) VALUES (1, 'Can you recommend the newest phone?', 'GrapePhone X12.');
 INSERT INTO voice_queries (customer_id, query_text, response_text) VALUES (1, 'Do you have any books for learning how to pack my bag? ', '《How to Disappear Completely and Never Be Found》');
 INSERT INTO voice_queries (customer_id, query_text, response_text) VALUES (1, 'Do you have the Cloak of Invisibility, one of the Deathly Hallows?', 'Yes, [link].');
+
+-- Insert data into payments table
+INSERT INTO payments (customer_id, date, total_paid, stripe_charge_id) VALUES
+(1, '2023-09-08', 55.99, 'ch_1I7z3bG9AcYofN'),
+(2, '2023-09-07', 120.50, 'ch_1I7x2bF3BcYoG8'),
+(3, '2023-09-06', 75.25, 'ch_1I7w4aD8AcZoN7');
