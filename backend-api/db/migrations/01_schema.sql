@@ -37,7 +37,8 @@ CREATE TABLE addresses (
 -- Creating the categories table
 CREATE TABLE categories (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(50)
+  name VARCHAR(50),
+  image VARCHAR(255)
 );
 
 -- Creating the products table
